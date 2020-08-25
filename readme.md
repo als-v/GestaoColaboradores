@@ -51,15 +51,15 @@ git clone https://github.com/als-v/ProjetoPi
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES 
 ## Exemplo de uso
 Colocar imagens aqui
-
+-->
 <!-- CONTACT -->
 ## Contato
 
-Alisson da Silva Vieira - alisson.v3@hotmail.com
-Guilherme Valério - gui@gmail.com
+Alisson da Silva Vieira - alisson.v3@hotmail.com  
+Guilherme Valério - heatsone84@gmail.com
 
 Project Link: [https://github.com/als-v/ProjetoPi](https://github.com/als-v/ProjetoPi)
 
