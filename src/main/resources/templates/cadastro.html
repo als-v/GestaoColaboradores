@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+
+	<title>Gestao de Colaboradores</title>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header>
+	
+		<nav class="navbar navbar-dark bg-dark">
+	  		<a class="navbar-brand" href="#">Gestão de Colaboradores</a>
+		</nav>
+		
+	</header>
+
+	<section>
+	
+		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
+  				<ol class="breadcrumb" style="background-color: white" >
+  				    <li class="breadcrumb-item" aria-current="page">
+    				<a href="/">Login</a>
+    				</li>
+    				<li class="breadcrumb-item active" aria-current="page">
+    				Cadastro
+    				</li>
+  				</ol>
+			</nav>
+			
+			<div>
+			
+				<form method="post">
+				
+					<div class="form-group">
+						<label for="nomeId">Digite o nome da empresa *</label>
+						<input type="text" class="form-control" name="nome" id="nomeId">
+					</div>
+					
+					<div class="form-group">
+						<label for="emailId">Digite seu e-mail *</label>
+						<input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp">
+						<small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar seu e-mail com ninguém.</small>
+					</div>
+					
+					<div class="form-group">
+						<label for="cnpjId">Digite o CNPJ da empresa *</label>
+						<input type="number" class="form-control" name="cnpj" id="cnpjId">
+					</div>
+					
+					<div class="form-group">
+						<label for="senhaId">Crie uma senha *</label>
+						<input type="password" class="form-control" name="senha" id="senhaId">
+					</div>
+					
+					<small class="form-text text-muted*">[*] Campos obrigatórios</small>
+					
+					<div class="row mx-md-n5">
+						<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
+						<a href="/" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
+					</div>
+					
+				</form>
+			
+			</div>
+			
+			
+		</div>
+	
+	</section>
+</body>
+</html>

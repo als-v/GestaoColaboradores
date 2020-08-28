@@ -1,4 +1,4 @@
-
+﻿
 <!-- TABLE OF CONTENTS -->
 ## Conteúdos
 
@@ -8,6 +8,7 @@
 * [Como rodar a apresentação](#getting-started)
   * [Pré-requisitos](#prerequisites)
   * [Instalação](#installation)
+* [Exemplos de uso](#usage)
 * [Contato](#contact)
 
 
@@ -21,7 +22,6 @@ Em poucas palavras, é um sistema de gestão de pessoas. É uma tecnologia que a
 O sistema está sendo feito com as seguintes tecnologias:
 * [Java](https://www.java.com/)
 * [Spring Boot](https://spring.io/projects/spring-boot)
-* [PostgreSQL](https://www.postgresql.org/download/)
 
 
 <!-- FEATURES -->
@@ -36,46 +36,21 @@ Nosso sistema apresentará as principais funcionalidades:
 <!-- GETTING STARTED -->
 ## Como rodar a aplicação
 
-O tutorial abaixo foi feito utilizando o sistema operacional Ubuntu 18.04.5.
+Passo a passo
 
 ### Pré-requisitos
 
-[Java SE 11](https://www.oracle.com/java/technologies/javase-downloads.html)
-[PostgreSQL](https://www.postgresql.org/download/)
-[Maven](https://maven.apache.org/)
+Java 11
 
 ### Instalação
 
 1. Clone o repositorio
 ```sh
-git clone https://github.com/als-v/GestaoColaboradores
+git clone https://github.com/als-v/ProjetoPi
 ```
-2. No terminal rode os seguintes comandos:
-	```sh
-	sudo -i -u postgres
-	```
-	```sh
-	createdb gestaocolaboradores
-	```
-	E caso não tenha uma senha definida para o usuário padrão do PostgreSQL 'postgres', defina uma nova senha com o seguinte comando:
-	```sh
-	sudo passwd postgres
-	Digite a nova senha UNIX:teste
-	Redigite a nova senha UNIX:teste
-	passwd: senha atualizada com sucesso
-	```
-3. Na pasta do projeto, acesse o seguinte caminho: 
-	```sh
-	GestaoColaboradores/src/main/resources
-	```
-	E dentro desta pasta, acesse o arquivo 'aplication.properties' altere o valor da variável 'spring.datasource.password' com a senha criada anteriormente, exemplo:
-	```sh
-	spring.datasource.password=teste
-	```
-4. Novamente na pasta do projeto, rode o seguinte comando:
-	```sh
-	mvn spring-boot:run
-	```
+
+
+
 <!-- USAGE EXAMPLES 
 ## Exemplo de uso
 Colocar imagens aqui
@@ -86,7 +61,6 @@ Colocar imagens aqui
 Alisson da Silva Vieira - alisson.v3@hotmail.com  
 Guilherme Valério - heatsone84@gmail.com
 
-Project Link: [https://github.com/als-v/GestaoColaboradores.git](https://github.com/als-v/GestaoColaboradores.git)
-
+Project Link: [https://github.com/als-v/ProjetoPi](https://github.com/als-v/ProjetoPi)
 
 
