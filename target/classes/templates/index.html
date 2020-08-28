@@ -10,19 +10,42 @@
 </head>
 
 <body>
-	<header>
-	
-		<nav class="navbar navbar-dark bg-dark">
-	  		<a class="navbar-brand" href="#">Gestão de Colaboradores</a>
-		</nav>
-		
-	</header>
 
 	<section>
 	
 		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
-			
-			<p>Bem-vindo!</p>
+		
+				<div>
+					<h1 style="font-size: 25px; text-align: center; margin: 10;">Gestão de Colaboradores</h1>
+				</div>
+			<div class="card shadow-sm bg-white rounded" style="margin-top: 20px;">	
+				<div class="card-body">
+					<div class="p-4">
+					  <form class="px-4 py-3">
+					    <div class="form-group">
+					      <label for="exampleDropdownFormEmail1">E-mail</label>
+					      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+					    </div>
+					    <div class="form-group">
+					      <label for="exampleDropdownFormPassword1">Senha</label>
+					      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+					    </div>
+					    <div class="form-group">
+					      <div class="form-check">
+					        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+					        <label class="form-check-label" for="dropdownCheck">
+					          Lembre de mim
+					        </label>
+					      </div>
+					    </div>
+					    <button type="submit" class="btn btn-outline-secondary">Entrar</button>
+					  </form>
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item w-75" href="/cadastro">Novo por aqui? Faça sua conta agora mesmo!</a>
+					  <a class="dropdown-item w-50" href="#">Esqueceu a senha?</a>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 	

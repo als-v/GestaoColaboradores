@@ -1,3 +1,4 @@
+
 <!-- TABLE OF CONTENTS -->
 ## Conteúdos
 
@@ -7,7 +8,6 @@
 * [Como rodar a apresentação](#getting-started)
   * [Pré-requisitos](#prerequisites)
   * [Instalação](#installation)
-* [Exemplos de uso](#usage)
 * [Contato](#contact)
 
 
@@ -21,6 +21,7 @@ Em poucas palavras, é um sistema de gestão de pessoas. É uma tecnologia que a
 O sistema está sendo feito com as seguintes tecnologias:
 * [Java](https://www.java.com/)
 * [Spring Boot](https://spring.io/projects/spring-boot)
+* [PostgreSQL](https://www.postgresql.org/download/)
 
 
 <!-- FEATURES -->
@@ -41,6 +42,7 @@ O tutorial abaixo foi feito utilizando o sistema operacional Ubuntu 18.04.5.
 
 [Java SE 11](https://www.oracle.com/java/technologies/javase-downloads.html)
 [PostgreSQL](https://www.postgresql.org/download/)
+[Maven](https://maven.apache.org/)
 
 ### Instalação
 
@@ -62,13 +64,17 @@ git clone https://github.com/als-v/GestaoColaboradores
 	Redigite a nova senha UNIX:teste
 	passwd: senha atualizada com sucesso
 	```
-3. No repositório, acesse a seguinte pasta: 
+3. Na pasta do projeto, acesse o seguinte caminho: 
 	```sh
 	GestaoColaboradores/src/main/resources
 	```
 	E dentro desta pasta, acesse o arquivo 'aplication.properties' altere o valor da variável 'spring.datasource.password' com a senha criada anteriormente, exemplo:
 	```sh
 	spring.datasource.password=teste
+	```
+4. Novamente na pasta do projeto, rode o seguinte comando:
+	```sh
+	mvn spring-boot:run
 	```
 <!-- USAGE EXAMPLES 
 ## Exemplo de uso

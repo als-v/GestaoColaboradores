@@ -11,3 +11,7 @@
    - Criamos um projeto inicial, e separamos tarefas para cada um relacionadas ao Backend.
 
 
+* 26/08/2020
+   - Criamos as historias de usuários para o nosso sistema
+   - Separamos as histórias em épicos para a primeira sprint
+   - Começamos a trabalhar na sprint
