@@ -24,10 +24,13 @@
 			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
   				<ol class="breadcrumb" style="background-color: white" >
   				    <li class="breadcrumb-item" aria-current="page">
-    				<a href="/">Login</a>
+    					<a href="/">Sair</a>
+    				</li>
+    				<li class="breadcrumb-item" aria-current="page">
+    					<a href="/menuEmpresa">Menu</a>
     				</li>
     				<li class="breadcrumb-item active" aria-current="page">
-    				Cadastro
+    				Cadastro de Colaborador
     				</li>
   				</ol>
 			</nav>
@@ -37,23 +40,18 @@
 				<form method="post">
 				
 					<div class="form-group">
-						<label for="nomeId">Digite o nome da empresa *</label>
+						<label for="nomeId">Nome do colaborador *</label>
 						<input type="text" class="form-control" name="nome" id="nomeId" placeholder="Gestão Colaboradores">
 					</div>
 					
 					<div class="form-group">
-						<label for="emailId">Digite seu e-mail *</label>
+						<label for="emailId">E-mail do colaborador *</label>
 						<input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp" placeholder="exemplo@exemplo.com">
-						<small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar seu e-mail com ninguém.</small>
+						<small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar o e-mail do seu colaborador com ninguém.</small>
 					</div>
 					
 					<div class="form-group">
-						<label for="cnpjId">Digite o CNPJ da empresa *</label>
-						<input type="number" class="form-control" name="cnpj" id="cnpjId" placeholder="000.000.000/0000-00">
-					</div>
-					
-					<div class="form-group">
-						<label for="senhaId">Crie uma senha *</label>
+						<label for="senhaId">Crie uma senha para o colaborador *</label>
 						<input type="password" class="form-control" name="senha" id="senhaId" placeholder="senha">
 					</div>
 					
@@ -61,7 +59,7 @@
 					
 					<div class="row mx-md-n5">
 						<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
-						<a href="/" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
+						<a href="/menuEmpresa" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
 					</div>
 					
 				</form>

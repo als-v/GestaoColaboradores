@@ -40,7 +40,7 @@ public class EmpresaController {
 			return "redirect:/cadastro";
 		}
 		
-		empresaService.save(empresa);
-		return "redirect:/empresas";
+		empresaService.save(empresa);	
+		return "redirect:/menuEmpresa/" + empresa.getEmpresa_id();
 	}
 }
