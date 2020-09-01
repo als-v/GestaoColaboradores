@@ -76,10 +76,6 @@ git clone https://github.com/als-v/GestaoColaboradores
 	```sh
 	mvn spring-boot:run
 	```
-5. Agora, no seu navegador, acesse o seguinte endereço:
-	```sh
-	http://localhost:8080
-	```
 <!-- USAGE EXAMPLES 
 ## Exemplo de uso
 Colocar imagens aqui
