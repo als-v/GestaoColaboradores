@@ -9,25 +9,25 @@
 
 </head>
 
-<body>
+<body style="background-color: #FBFBFB;">
 	<header>
 	
-		<nav class="navbar navbar-dark bg-dark">
-	  		<a class="navbar-brand" href="#">Gestão de Colaboradores</a>
+		<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
+  			<a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
 		</nav>
 		
 	</header>
 
 	<section>
 	
-		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;" >
 			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
-  				<ol class="breadcrumb" style="background-color: white" >
+  				<ol class="breadcrumb" style=" background-color: #F6F6F6">
   				    <li class="breadcrumb-item" aria-current="page">
     					<a href="/">Sair</a>
     				</li>
-    				<li class="breadcrumb-item" aria-current="page">
-    					<a href="/menuEmpresa">Menu</a>
+    				<li class="breadcrumb-item" aria-current="page" onClick="redirecionar()">
+    					<a href="#">Menu</a>
     				</li>
     				<li class="breadcrumb-item active" aria-current="page">
     				Cadastro de Colaborador
@@ -59,7 +59,7 @@
 					
 					<div class="row mx-md-n5">
 						<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
-						<a href="/menuEmpresa" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
+						<a href="#" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;" onClick="redirecionar()">Cancelar</a>
 					</div>
 					
 				</form>
@@ -70,5 +70,12 @@
 		</div>
 	
 	</section>
+	<script>
+		function redirecionar(){
+			var x = document.URL;
+			
+			window.location.href = "/menuEmpresa/" + x.substr(42,42);
+		}
+	</script>
 </body>
 </html>
