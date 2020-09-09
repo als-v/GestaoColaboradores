@@ -6,7 +6,29 @@
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+	
+	<script type="text/javascript">
+	
+		function Masc(objeto,mascara) {
+			obj=objeto
+			masc=mascara
+			setTimeout("MascEx()",1)
+		}
+		
+		function MascEx() {
+			obj.value=masc(obj.value)
+		}
+		
+		function CNPJ(cnpj){
+			cnpj=cnpj.substring(0, 18)
+			cnpj=cnpj.replace(/\D/g,"")
+			cnpj=cnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+			cnpj=cnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+			cnpj=cnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+			cnpj=cnpj.replace(/(\d{4})(\d)/,"$1-$2")
+			return cnpj
+		}
+	</script>
 </head>
 
 <body style="background-color: #FBFBFB;">
@@ -33,7 +55,7 @@
 			</nav>
 			
 			<div>
-			
+				<th:block th:include="validate/empresaValidate"></th:block>
 				<form method="post">
 				
 					<div class="form-group">
@@ -49,7 +71,7 @@
 					
 					<div class="form-group">
 						<label for="cnpjId">Digite o CNPJ da empresa *</label>
-						<input type="number" class="form-control" name="cnpj" id="cnpjId" placeholder="000.000.000/0000-00">
+						<input type="text" class="form-control" name="cnpj" id="cnpjId" placeholder="00.000.000/0000-00" onkeydown="javascript: Masc( this, CNPJ );">
 					</div>
 					
 					<div class="form-group">

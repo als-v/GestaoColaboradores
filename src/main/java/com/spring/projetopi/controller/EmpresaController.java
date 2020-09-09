@@ -37,6 +37,7 @@ public class EmpresaController {
 	@RequestMapping(value = "/cadastro", method = RequestMethod.POST)
 	public String saveEmpresa(@Valid Empresa empresa, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
 			return "redirect:/cadastro";
 		}
 		

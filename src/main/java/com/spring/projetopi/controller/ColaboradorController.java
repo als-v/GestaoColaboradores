@@ -44,6 +44,7 @@ public class ColaboradorController {
 	@RequestMapping(value = "/cadastroColaborador/{id}", method = RequestMethod.POST)
 	public String saveColaborador(@Valid Colaborador colaborador, BindingResult result, RedirectAttributes attributes, @PathVariable("id") Long id) {
 		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
 			return "redirect:/cadastroColaborador/" + id;
 		}
 		
