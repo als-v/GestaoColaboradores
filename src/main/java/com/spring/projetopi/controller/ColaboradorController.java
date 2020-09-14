@@ -36,6 +36,23 @@ public class ColaboradorController {
 		return mv;
 	}
 	
+	@SuppressWarnings("null")
+	@RequestMapping(value = "/colaboradores/{id}", method = RequestMethod.GET)
+	public ModelAndView getColaboradores(@PathVariable("id") Long id) {
+		ModelAndView mv = new ModelAndView("colaboradores");
+		List<Colaborador> colaboradores = colaboradorService.findAll();
+		
+		for(int i = 0; i < colaboradores.size(); i++) {
+			if(colaboradores.get(i).getEmpresa().getEmpresa_id() != id) {
+				colaboradores.remove(i);
+				i = -1;
+			}
+		}
+		
+		mv.addObject("colaboradores", colaboradores);
+		return mv;
+	}	
+	
 	@RequestMapping(value = "/cadastroColaborador/{id}", method = RequestMethod.GET)
 	public String GoToCadastro() {
 	    return "cadastroColaborador";
