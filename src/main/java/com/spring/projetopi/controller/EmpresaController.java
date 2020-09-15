@@ -65,4 +65,22 @@ public class EmpresaController {
 		mv.addObject("empresa", empresa);
 		return mv;
 	}
+	
+	@RequestMapping(value = "/editarEmpresa/{id}", method = RequestMethod.POST)
+	public String editarNomeEmpresa(@Valid Empresa empresa, BindingResult result, RedirectAttributes attributes, @PathVariable("id") Long id) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
+			return "redirect:/editarEmpresa/" + id;
+		}
+		
+		Empresa empresa2 = empresaService.findById(id);
+		
+		if (empresa2.getNome() != empresa.getNome()) {
+			empresa2.setNome(empresa.getNome());
+		}
+		
+		empresaService.save(empresa2);
+		
+		return "redirect:/menuEmpresa/" + id;
+	}
 }
