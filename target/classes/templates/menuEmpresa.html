@@ -23,6 +23,8 @@
     <span class="navbar-text" >Logado como:&nbsp</span>
     <span class="navbar-text" th:text="${empresa.nome}">
     </span>
+    <span>&nbsp&nbsp&nbsp</span>
+    <a href="#" onClick="editar()">Editar perfil</a>
   </div>
 </nav>
 		
@@ -80,6 +82,12 @@
 			
 			window.location.href = "/colaboradores/" + x.substr(34,34);
 		}	
+		
+		function editar(){
+			var x = document.URL;
+			
+			window.location.href = "/editarEmpresa/" + x.substr(34,34);
+		}
 	</script>
 </body>
 </html>
