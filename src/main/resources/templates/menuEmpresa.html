@@ -46,7 +46,7 @@
 			</nav>
 
 			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
-				<div class="card-body" onClick="redirecionar()">
+				<div class="card-body" onClick="cadastro()">
 					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="cadastro()">
 						<!-- <a href="/cadastroColaborador"><span>Cadastrar colaborador</span></a>  -->
 						<!-- <button style="">Cadastrar colaborador</button> -->
@@ -57,7 +57,7 @@
 			</div>
 			
 			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
-				<div class="card-body" onClick="redirecionar()">
+				<div class="card-body" onClick="listagem()">
 					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="listagem()">
 						<!-- <a href="/cadastroColaborador"><span>Cadastrar colaborador</span></a>  -->
 						<!-- <button style="">Cadastrar colaborador</button> -->
@@ -65,29 +65,41 @@
 						<span>Todos os Colaboradores</span>
 					</h4>
 				</div>
-			</div>			
+			</div>
+			
+			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+				<div class="card-body" onClick="pesquisa()">
+					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="pesquisa()">
+						<!-- <a href="/cadastroColaborador"><span>Cadastrar colaborador</span></a>  -->
+						<!-- <button style="">Cadastrar colaborador</button> -->
+						<!-- <span>Cadastrar colaborador</span> -->
+						<span>Criar Pesquisa</span>
+					</h4>
+				</div>
+			</div>						
 			
 		</div>
 	
 	</section>
 	<script>
+		var x = document.URL;
+		
 		function cadastro(){
-			var x = document.URL;
-			
 			window.location.href = "/cadastroColaborador/" + x.substr(34,34);
 		}
 		
 		function listagem(){
-			var x = document.URL;
-			
 			window.location.href = "/colaboradores/" + x.substr(34,34);
 		}	
 		
 		function editar(){
-			var x = document.URL;
-			
 			window.location.href = "/editarEmpresa/" + x.substr(34,34);
 		}
+		
+		function pesquisa() {
+			window.location.href = "/pesquisas/" + x.substr(34,34);
+		}
+		
 	</script>
 </body>
 </html>

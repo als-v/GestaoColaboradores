@@ -14,6 +14,7 @@ public class Colaborador {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_COLABORADOR", updatable = false, nullable = false)
 	@Getter @Setter private Long colaborador_id;
 	
 	@ManyToOne
