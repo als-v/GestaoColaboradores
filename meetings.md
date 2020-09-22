@@ -24,3 +24,9 @@
    - Discutimos as issues que iriam entrar para a próxima sprint.
    - Fizemos os épicos e as histórias de usuários delas.
    - Estamos receosos quanto a uma issue da 2° sprint: Login.
+   
+* 16/09/2020
+   - Estamos com um problema referente ao cadastro das alternativas, tanto os casos de teste como o sistema estão gerando erros
+   - Optamos por realizar um login preguiçoso (sem autenticação)
+   - Arrumamos as issues do zenhub
+   - Adicionamos mais issues no product backlog
