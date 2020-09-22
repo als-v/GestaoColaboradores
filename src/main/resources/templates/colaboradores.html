@@ -27,7 +27,7 @@
   				    <li class="breadcrumb-item" aria-current="page">
     					<a href="/">Sair</a>
     				</li>
-    				<li class="breadcrumb-item" aria-current="page" onClick="redirecionar()">
+    				<li class="breadcrumb-item" aria-current="page" onClick="menu()">
     					<a href="#">Menu</a>
     				</li>
     				<li class="breadcrumb-item active" aria-current="page">
@@ -38,7 +38,7 @@
 			
 			 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(colaboradores)}">
 			 	<div th:case="'0'">
-			 		<div class="card shadow-sm bg-white rounded" style="margin-top: 20px; margin-bottom: 20px">
+			 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
 						<div class="card-body">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 								<span>Nenhum colaborador cadastrado</span>
@@ -47,7 +47,7 @@
 					</div>
 			 	</div>
 			 	<div th:case="*">
-				 	<div class="card shadow-sm bg-white rounded" style="margin-top: 20px; margin-bottom: 20px" th:each="colaborador : ${colaboradores}">
+				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;" th:each="colaborador : ${colaboradores}">
 					 	<div class="card-body">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 								<span th:text="${colaborador.nome}"></span>
@@ -64,14 +64,22 @@
 				 	</div>
 			 	</div>
 			</div>
+			<div class="row mx-md-n5">
+				<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
+				<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
+			</div>
 		</div>
 	
 	</section>
 	<script>
-		function redirecionar(){
-			var x = document.URL;
-			
+		var x = document.URL;
+	
+		function menu(){
 			window.location.href = "/menuEmpresa/" + x.substr(36,36);
+		}
+		
+		function cadastro(){
+			window.location.href = "/cadastroColaborador/" + x.substr(36,36);
 		}
 	</script>
 </body>

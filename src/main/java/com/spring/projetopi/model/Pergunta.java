@@ -12,6 +12,7 @@ public class Pergunta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_PERGUNTA", updatable = false, nullable = false)
 	@Getter @Setter private Long pergunta_id;
 	
 	@NotBlank(message = "Pergunta e obrigatorio")

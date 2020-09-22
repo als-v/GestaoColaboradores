@@ -39,6 +39,7 @@ public class PopularQuestao {
 	
 	//@PostConstruct
 	public void criaQuestao() {
+		
 		Pergunta p1 = new Pergunta();
 		p1.setPergunta("Qem descobriu o brasil?");
 		
@@ -87,5 +88,23 @@ public class PopularQuestao {
 		q1.setAlternativas(alternativaList);
 		
 		Questao q = questaoRepository.save(q1);
+		
+		/*
+		Alternativa a1 = new Alternativa();
+		a1.setAlternativa(1);
+		a1.setDescricao("Pedro Alvares Toledo");
+		a1.setCorreto(false);
+		
+		Alternativa a2 = new Alternativa();
+		a2.setAlternativa(2);
+		a2.setDescricao("Jose paulo Freire");
+		a2.setCorreto(true);
+		
+		Alternativa a3 = alternativaRepository.save(a1);
+		Alternativa a4 = alternativaRepository.save(a2);
+		
+		System.out.println(a3.getAlternativa_id());
+		System.out.println(a4.getAlternativa_id());
+		*/
 	}
 }

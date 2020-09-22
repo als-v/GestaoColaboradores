@@ -21,4 +21,7 @@ public class Pesquisa {
 	
 	@OneToMany
 	@Getter @Setter private List<Questao> questoes;
+	
+	@Column(columnDefinition = "varchar(255) default 'Pesquisa sem nome'")
+	@Getter @Setter private String nome;
 }

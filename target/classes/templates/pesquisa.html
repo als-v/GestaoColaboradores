@@ -31,17 +31,17 @@
     					<a href="#">Menu</a>
     				</li>
     				<li class="breadcrumb-item active" aria-current="page">
-    				Colaboradores
+    				Pesquisas
     				</li>
   				</ol>
 			</nav>
 			
-			 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(colaboradores)}">
+			 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(pesquisas)}">
 			 	<div th:case="'0'">
 			 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
 						<div class="card-body">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span>Nenhum colaborador cadastrado</span>
+								<span>Nenhuma pesquisa cadastrada</span>
 							</h4>
 						</div>
 					</div>
@@ -50,36 +50,28 @@
 				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;" th:each="colaborador : ${colaboradores}">
 					 	<div class="card-body">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span th:text="${colaborador.nome}"></span>
+								<span th:text="${pesquisas.nome}"></span>
 							</h4>
-							
-							<div class="card-text" >
-								<p style="margin-left: 30%; display: inline-block;">E-MAIL:&nbsp;&nbsp;</p> 
-								<p style="display: inline-block;" th:text=${colaborador.email}></p>
-								</br>
-								<p style="margin-left: 30%; display: inline-block;: left">EMPRESA:&nbsp;&nbsp;</p>
-								<p style="display: inline-block;: left"th:text=${colaborador.empresa.nome}></p>
-							</div>
 						</div>
 				 	</div>
 			 	</div>
 			</div>
-			<div class="row mx-md-n5">
-				<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
-				<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
-			</div>
+				<div class="row mx-md-n5">
+					<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar pesquisa</button>
+					<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
+				</div>
 		</div>
 	
 	</section>
 	<script>
 		var x = document.URL;
-	
+		
 		function menu(){
-			window.location.href = "/menuEmpresa/" + x.substr(36,36);
+			window.location.href = "/menuEmpresa/" + x.substr(32,32);
 		}
 		
 		function cadastro(){
-			window.location.href = "/cadastroColaborador/" + x.substr(36,36);
+			window.location.href = "/cadastroPergunta/" + x.substr(32,32);
 		}
 	</script>
 </body>
