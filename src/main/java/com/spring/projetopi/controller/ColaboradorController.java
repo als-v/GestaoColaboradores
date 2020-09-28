@@ -59,16 +59,23 @@ public class ColaboradorController {
 	}
 	
 	@RequestMapping(value = "/cadastroColaborador/{id}", method = RequestMethod.POST)
-	public String saveColaborador(@Valid Colaborador colaborador, BindingResult result, RedirectAttributes attributes, @PathVariable("id") Long id) {
-		if (result.hasErrors()) {
+	public String saveColaborador(Colaborador colaborador, RedirectAttributes attributes, @PathVariable("id") Long id) {
+		if (colaborador.getEmail() == "" || colaborador.getSenha() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
 			return "redirect:/cadastroColaborador/" + id;
 		}
 		
 		Empresa emp = empresaService.findById(id);
+		
 		colaborador.setEmpresa(emp);
 		
+		System.out.println(colaborador.getEmail());
+		System.out.println(colaborador.getSenha());
+		System.out.println(colaborador.getColaborador_id());
+		
 		colaboradorService.save(colaborador);
+		
+		System.out.println(colaborador.getColaborador_id());
 		
 		return "redirect:/menuEmpresa/" + id;
 	}

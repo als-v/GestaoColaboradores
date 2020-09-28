@@ -30,3 +30,9 @@
    - Optamos por realizar um login preguiçoso (sem autenticação)
    - Arrumamos as issues do zenhub
    - Adicionamos mais issues no product backlog
+   
+* 23/09/2020
+   - Achamos um problema referente ao cadastro de colaboradores (by: guizin)
+   - Conversamos sobre o projeto estar crescendo (no quesito banco de dados, e futuras adições)
+   - Discutimos sobre a possibilidade de subir o banco para a AWS
+   - Discutimos sobre o login

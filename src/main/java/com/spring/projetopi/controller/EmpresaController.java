@@ -49,7 +49,7 @@ public class EmpresaController {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
 			return "redirect:/cadastro";
 		}
-		
+		System.out.println(empresa.getEmpresa_id());
 		empresaService.save(empresa);	
 		return "redirect:/menuEmpresa/" + empresa.getEmpresa_id();
 	}
