@@ -3,6 +3,7 @@ package com.spring.projetopi.model;
 import javax.persistence.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Email;
 
 import lombok.Getter;
@@ -20,12 +21,12 @@ public class Colaborador {
 	@ManyToOne
 	@Getter @Setter private Empresa empresa;
 	
-	@NotBlank(message = "Nome e obrigatorio")
+	@NotNull
 	@Getter @Setter private String nome;
 	
 	@Email(message = "O email tem que ser valido")
 	@Getter @Setter private String email;
 	
-	@NotBlank(message = "Senha e obrigatorio")
+	@NotNull
 	@Getter @Setter private String senha;
 }

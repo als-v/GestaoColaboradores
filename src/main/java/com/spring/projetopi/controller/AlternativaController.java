@@ -16,9 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.projetopi.model.Alternativa;
+import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.Questao;
 import com.spring.projetopi.service.AlternativaService;
+import com.spring.projetopi.service.EmpresaService;
 import com.spring.projetopi.service.PerguntaService;
+import com.spring.projetopi.service.PesquisaService;
 import com.spring.projetopi.service.QuestaoService;
 
 @Controller
@@ -32,6 +35,12 @@ public class AlternativaController {
 	
 	@Autowired
 	PerguntaService perguntaService;
+	
+	@Autowired
+	PesquisaService pesquisaService;
+	
+	@Autowired
+	EmpresaService empresaService;
 	
 	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa() {
@@ -171,6 +180,18 @@ public class AlternativaController {
 		q.setAlternativas(alternativas);
 		
 		questaoService.save(q);
+		
+		List<Questao> questoes = new ArrayList<Questao>();
+		questoes.add(q);
+		
+		Pesquisa p1 = new Pesquisa();
+		p1.setEmpresa(empresaService.findById(id));
+		
+		p1.setQuestoes(questoes);
+		
+		p1.setNome("Pesquisa sem nome");
+		
+		pesquisaService.save(p1);
 		
 		return "redirect:/menuEmpresa/" + id;
 	}	
