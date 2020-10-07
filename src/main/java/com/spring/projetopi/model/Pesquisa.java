@@ -9,12 +9,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PESQUISA")
+@Table(name = "pesquisa")
 public class Pesquisa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Getter @Setter private Long pesquisa_id;
+	@Column(name="pesquisa_id", updatable = false, nullable = false)
+	@Getter @Setter private long pesquisa_id;
 	
 	@ManyToOne
 	@Getter @Setter private Empresa empresa;
@@ -22,6 +23,6 @@ public class Pesquisa {
 	@OneToMany
 	@Getter @Setter private List<Questao> questoes;
 	
-	@Column(columnDefinition = "varchar(255) default 'Pesquisa sem nome'")
+	@Column(name="nome", columnDefinition = "varchar(255) default 'Pesquisa sem nome'")
 	@Getter @Setter private String nome;
 }

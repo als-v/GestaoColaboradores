@@ -2,27 +2,31 @@ package com.spring.projetopi.model;
 
 import javax.persistence.*;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "REALIZACAOPESQUISA")
+@Table(name = "realizacaopesquisa")
 public class RealizacaoPesquisa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Getter @Setter private Long realizacaopesquisa_id;
+	@Column(name="realizacaopesquisa_id", updatable = false, nullable = false)
+	@Getter @Setter private long realizacaopesquisa_id;
 	
-	@NotBlank
+	@NotNull
 	@OneToOne
 	@Getter @Setter private Colaborador colaborador;
 	
-	@NotBlank
+	@NotNull
 	@OneToOne
 	@Getter @Setter private Pesquisa pesquisa;
 	
-	@NotBlank
+	@Column(name="acertos", nullable = false)
 	@Getter @Setter private int acertos;
+	
+	@Column(name="erros", nullable = false)
+	@Getter @Setter private int erros;
 }

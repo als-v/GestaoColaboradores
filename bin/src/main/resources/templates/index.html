@@ -21,14 +21,15 @@
 			<div class="card shadow-sm bg-white rounded" style="margin-top: 20px;">	
 				<div class="card-body">
 					<div class="p-4">
-					  <form class="px-4 py-3">
+					<th:block th:include="validate/empresaValidate"></th:block>
+					  <form class="px-4 py-3" method="post">
 					    <div class="form-group">
 					      <label for="exampleDropdownFormEmail1">E-mail</label>
-					      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="exemplo@exemplo.com">
+					      <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@exemplo.com">
 					    </div>
 					    <div class="form-group">
 					      <label for="exampleDropdownFormPassword1">Senha</label>
-					      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="senha">
+					      <input type="password" class="form-control" id="senha" name="senha" placeholder="senha">
 					    </div>
 					    <div class="form-group">
 					      <div class="form-check">
