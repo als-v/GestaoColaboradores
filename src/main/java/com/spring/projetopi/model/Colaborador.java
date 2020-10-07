@@ -15,6 +15,7 @@ public class Colaborador {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@NotNull
 	@Column(name = "ID_COLABORADOR", updatable = false, nullable = false)
 	@Getter @Setter private Long colaborador_id;
 	

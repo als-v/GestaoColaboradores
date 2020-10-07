@@ -1,20 +1,19 @@
 package com.spring.projetopi.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PERGUNTA")
+@Table(name = "pergunta")
 public class Pergunta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID_PERGUNTA", updatable = false, nullable = false)
-	@Getter @Setter private Long pergunta_id;
+	@Column(name = "pergunta_id", updatable = false, nullable = false)
+	@Getter @Setter private long pergunta_id;
 	
-	@NotBlank(message = "Pergunta e obrigatorio")
+	@Column(name="pergunta", nullable = false)
 	@Getter @Setter private String pergunta;
 }

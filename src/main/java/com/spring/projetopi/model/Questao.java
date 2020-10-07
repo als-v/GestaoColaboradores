@@ -8,14 +8,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "QUESTAO")
+@Table(name = "questao")
 public class Questao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Getter @Setter private Long questao_id;
+	@Column(name="questao_id", updatable = false, nullable = false)
+	@Getter @Setter private long questao_id;
 
 	@OneToOne
+	@Column(name="pergunta", nullable = false)
 	@Getter @Setter private Pergunta pergunta;
 	
 	@OneToMany
