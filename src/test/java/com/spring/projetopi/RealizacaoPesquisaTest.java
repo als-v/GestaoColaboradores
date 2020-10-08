@@ -9,6 +9,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.ColaboradorController;
+import com.spring.projetopi.controller.EmpresaController;
+import com.spring.projetopi.controller.RealizacaoPesquisaController;
 import com.spring.projetopi.model.Alternativa;
 import com.spring.projetopi.model.Colaborador;
 import com.spring.projetopi.model.Empresa;
@@ -16,21 +19,18 @@ import com.spring.projetopi.model.Pergunta;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.Questao;
 import com.spring.projetopi.model.RealizacaoPesquisa;
-import com.spring.projetopi.service.ColaboradorService;
-import com.spring.projetopi.service.EmpresaService;
-import com.spring.projetopi.service.RealizacaoPesquisaService;
 
 @SpringBootTest
 public class RealizacaoPesquisaTest {
 	
 	@Autowired
-	RealizacaoPesquisaService realizacaoPesquisaService;
+	RealizacaoPesquisaController realizacaoPesquisaService;
 	
 	@Autowired
-	EmpresaService empresaService;
+	EmpresaController empresaService;
 	
 	@Autowired
-	ColaboradorService colaboradorService;
+	ColaboradorController colaboradorService;
 	
 	@Test
 	public void createRealizacaoPesquisa() {

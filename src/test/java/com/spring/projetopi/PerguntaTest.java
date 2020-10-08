@@ -7,14 +7,14 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.PerguntaController;
 import com.spring.projetopi.model.Pergunta;
-import com.spring.projetopi.service.PerguntaService;
 
 @SpringBootTest
 public class PerguntaTest {
 	
 	@Autowired
-	PerguntaService perguntaService;
+	PerguntaController perguntaService;
 	
 	@Test
 	public void createPergunta() {

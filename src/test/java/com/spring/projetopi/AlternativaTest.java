@@ -9,14 +9,14 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.AlternativaController;
 import com.spring.projetopi.model.Alternativa;
-import com.spring.projetopi.service.AlternativaService;
 
 @SpringBootTest
 public class AlternativaTest {
 	
 	@Autowired
-	AlternativaService alternativaService;
+	AlternativaController alternativaService;
 	
 	@Test
 	public void createAlternativa() {

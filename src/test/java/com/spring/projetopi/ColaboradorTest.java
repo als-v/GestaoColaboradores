@@ -6,19 +6,19 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.ColaboradorController;
+import com.spring.projetopi.controller.EmpresaController;
 import com.spring.projetopi.model.Colaborador;
 import com.spring.projetopi.model.Empresa;
-import com.spring.projetopi.service.ColaboradorService;
-import com.spring.projetopi.service.EmpresaService;
 
 @SpringBootTest
 public class ColaboradorTest {
 	
 	@Autowired
-	ColaboradorService colaboradorService;
+	ColaboradorController colaboradorService;
 	
 	@Autowired
-	EmpresaService empresaService;
+	EmpresaController empresaService;
 	
 	@Test
 	public void createColaborador() {

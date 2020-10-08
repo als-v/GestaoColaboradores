@@ -1,7 +1,7 @@
-package com.spring.projetopi.service.serviceImpl;
+package com.spring.projetopi.controller.controllerImpl;
 
 import com.spring.projetopi.model.Colaborador;
-import com.spring.projetopi.service.ColaboradorService;
+import com.spring.projetopi.controller.ColaboradorController;
 import com.spring.projetopi.repository.ColaboradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ColaboradorServiceImpl implements ColaboradorService {
+public class ColaboradorControllerImpl implements ColaboradorController {
 	
 	@Autowired
 	ColaboradorRepository colaboradorRepository;

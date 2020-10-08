@@ -1,7 +1,7 @@
-package com.spring.projetopi.service.serviceImpl;
+package com.spring.projetopi.controller.controllerImpl;
 
 import com.spring.projetopi.model.Pesquisa;
-import com.spring.projetopi.service.PesquisaService;
+import com.spring.projetopi.controller.PesquisaController;
 import com.spring.projetopi.repository.PesquisaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PesquisaServiceImpl implements PesquisaService {
+public class PesquisaControllerImpl implements PesquisaController {
 
 	@Autowired
 	PesquisaRepository pesquisaRepository;

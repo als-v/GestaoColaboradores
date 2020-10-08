@@ -1,7 +1,7 @@
-package com.spring.projetopi.service.serviceImpl;
+package com.spring.projetopi.controller.controllerImpl;
 
 import com.spring.projetopi.model.Alternativa;
-import com.spring.projetopi.service.AlternativaService;
+import com.spring.projetopi.controller.AlternativaController;
 import com.spring.projetopi.repository.AlternativaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AlternativaServiceImpl implements AlternativaService {
+public class AlternativaControllerImpl implements AlternativaController {
 
 	@Autowired
 	AlternativaRepository alternativaRepository;
