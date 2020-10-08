@@ -1,4 +1,4 @@
-package com.spring.projetopi.controller;
+package com.spring.projetopi.service;
 
 import java.util.List;
 
@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.projetopi.controller.ColaboradorController;
+import com.spring.projetopi.controller.EmpresaController;
 import com.spring.projetopi.model.Colaborador;
-import com.spring.projetopi.service.ColaboradorService;
 import com.spring.projetopi.model.Empresa;
-import com.spring.projetopi.service.EmpresaService;
 
 @Controller
-public class IndexController {
+public class IndexService {
 
 	@Autowired
-	ColaboradorService colaboradorService;
+	ColaboradorController colaboradorService;
 	
 	@Autowired
-	EmpresaService empresaService;
+	EmpresaController empresaService;
 	
     @RequestMapping(value = "/")
     public String GoToIndex(){
@@ -39,7 +39,8 @@ public class IndexController {
         for(int i = 0; i < colaboradores.size(); i++) {
         	
         	if(id.equals(colaboradores.get(i).getEmail()) && id2.equals(colaboradores.get(i).getSenha())) {
-                return "redirect:/index/";
+                long id4 = colaboradores.get(i).getColaborador_id();
+        		return "redirect:/menuColaborador/" + id4;
         	}
         	
         }
@@ -47,7 +48,7 @@ public class IndexController {
         for(int i = 0; i < empresas.size(); i++) {
         	
         	if(id.equals(empresas.get(i).getEmail()) && id2.equals(empresas.get(i).getSenha())) {
-        		Long id3 = empresas.get(i).getEmpresa_id();
+        		long id3 = empresas.get(i).getEmpresa_id();
                 return "redirect:/menuEmpresa/" + id3;
         	}
         	

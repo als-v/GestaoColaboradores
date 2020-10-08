@@ -1,10 +1,10 @@
-package com.spring.projetopi.service;
+package com.spring.projetopi.controller;
 
 import com.spring.projetopi.model.RealizacaoPesquisa;
 
 import java.util.List;
 
-public interface RealizacaoPesquisaService {
+public interface RealizacaoPesquisaController {
 
 	List<RealizacaoPesquisa> findAll();
 	RealizacaoPesquisa findById(long id);

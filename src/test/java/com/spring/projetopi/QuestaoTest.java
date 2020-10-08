@@ -12,24 +12,24 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.AlternativaController;
+import com.spring.projetopi.controller.PerguntaController;
+import com.spring.projetopi.controller.QuestaoController;
 import com.spring.projetopi.model.Alternativa;
 import com.spring.projetopi.model.Pergunta;
 import com.spring.projetopi.model.Questao;
-import com.spring.projetopi.service.AlternativaService;
-import com.spring.projetopi.service.PerguntaService;
-import com.spring.projetopi.service.QuestaoService;
 
 @SpringBootTest
 public class QuestaoTest {
 	
 	@Autowired
-	QuestaoService questaoService;
+	QuestaoController questaoService;
 	
 	@Autowired
-	PerguntaService perguntaService;
+	PerguntaController perguntaService;
 	
 	@Autowired
-	AlternativaService alternativaService;
+	AlternativaController alternativaService;
 	
 	@Test
 	public void createQuestao() {

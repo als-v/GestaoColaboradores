@@ -17,7 +17,7 @@ public class Questao {
 	@Getter @Setter private long questao_id;
 
 	@OneToOne
-	@Column(name="pergunta", nullable = false)
+	//@Column(name="pergunta", nullable = false)
 	@Getter @Setter private Pergunta pergunta;
 	
 	@OneToMany
