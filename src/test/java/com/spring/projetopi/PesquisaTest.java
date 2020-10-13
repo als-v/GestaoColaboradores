@@ -24,10 +24,10 @@ import com.spring.projetopi.model.Questao;
 public class PesquisaTest {
 	
 	@Autowired
-	PesquisaController pesquisaService;
+	PesquisaController pesquisaController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	@Test
 	public void createTest() {
@@ -39,7 +39,7 @@ public class PesquisaTest {
 		empresa.setCnpj("12.123.123/00001-93");
 		empresa.setSenha("senha");
 				
-		//empresaService.save(empresa);
+		//empresaController.save(empresa);
 		
 		/*====== Criação das questões ====== */
 		
@@ -196,6 +196,6 @@ public class PesquisaTest {
 			}
 		}
 		
-		//pesquisaService.save(pesquisa_1);
+		//pesquisaController.save(pesquisa_1);
 	}
 }

@@ -27,19 +27,19 @@ import com.spring.projetopi.model.Questao;
 public class AlternativaService {
 	
 	@Autowired
-	AlternativaController alternativaService;
+	AlternativaController alternativaController;
 	
 	@Autowired
-	QuestaoController questaoService;
+	QuestaoController questaoController;
 	
 	@Autowired
-	PerguntaController perguntaService;
+	PerguntaController perguntaController;
 	
 	@Autowired
-	PesquisaController pesquisaService;
+	PesquisaController pesquisaController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa() {
@@ -95,7 +95,7 @@ public class AlternativaService {
 		
 		a.setAlternativa(1);
 		
-		alternativaService.save(a);
+		alternativaController.save(a);
 		
 		System.out.println(a.getAlternativa());
 		System.out.println(a.getDescricao());
@@ -114,7 +114,7 @@ public class AlternativaService {
 		
 		b.setAlternativa(2);
 		
-		alternativaService.save(b);
+		alternativaController.save(b);
 		
 		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + b.getAlternativa_id();
 	}
@@ -128,7 +128,7 @@ public class AlternativaService {
 		
 		c.setAlternativa(3);
 		
-		alternativaService.save(c);
+		alternativaController.save(c);
 		
 		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + c.getAlternativa_id();
 	}	
@@ -142,7 +142,7 @@ public class AlternativaService {
 		
 		d.setAlternativa(4);
 		
-		alternativaService.save(d);
+		alternativaController.save(d);
 		
 		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + id5 + "/" + d.getAlternativa_id();
 	}
@@ -156,18 +156,18 @@ public class AlternativaService {
 		
 		e.setAlternativa(5);
 		
-		alternativaService.save(e);
+		alternativaController.save(e);
 		
 		Questao q = new Questao();
 		
-		q.setPergunta(perguntaService.findById(id2));
+		q.setPergunta(perguntaController.findById(id2));
 		
 		List <Alternativa> alternativas = new ArrayList<Alternativa>();
 		
-		Alternativa a = alternativaService.findById(id3);
-		Alternativa b = alternativaService.findById(id4);
-		Alternativa c = alternativaService.findById(id5);
-		Alternativa d = alternativaService.findById(id6);
+		Alternativa a = alternativaController.findById(id3);
+		Alternativa b = alternativaController.findById(id4);
+		Alternativa c = alternativaController.findById(id5);
+		Alternativa d = alternativaController.findById(id6);
 		
 		alternativas.add(a);
 		alternativas.add(b);
@@ -178,19 +178,19 @@ public class AlternativaService {
 		
 		q.setAlternativas(alternativas);
 		
-		questaoService.save(q);
+		questaoController.save(q);
 		
 		List<Questao> questoes = new ArrayList<Questao>();
 		questoes.add(q);
 		
 		Pesquisa p1 = new Pesquisa();
-		p1.setEmpresa(empresaService.findById(id));
+		p1.setEmpresa(empresaController.findById(id));
 		
 		p1.setQuestoes(questoes);
 		
 		p1.setNome("Pesquisa sem nome");
 		
-		pesquisaService.save(p1);
+		pesquisaController.save(p1);
 		
 		return "redirect:/menuEmpresa/" + id;
 	}	

@@ -15,10 +15,10 @@ import com.spring.projetopi.model.Empresa;
 public class ColaboradorTest {
 	
 	@Autowired
-	ColaboradorController colaboradorService;
+	ColaboradorController colaboradorController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	@Test
 	public void createColaborador() {
@@ -29,7 +29,7 @@ public class ColaboradorTest {
 		empresa.setCnpj("12.123.123/00001-93");
 		empresa.setSenha("senha");
 		
-		//empresaService.save(empresa);
+		//empresaController.save(empresa);
 		
 		Colaborador colaborador = new Colaborador();
 		
@@ -38,11 +38,38 @@ public class ColaboradorTest {
 		colaborador.setSenha("teste");
 		colaborador.setEmpresa(empresa);
 		
-		//colaboradorService.save(colaborador);
+		//colaboradorController.save(colaborador);
 		
 		assertEquals(colaborador.getEmail(), "teste@teste.com");
 		assertEquals(colaborador.getNome(), "Teste");
 		assertEquals(colaborador.getSenha(), "teste");
 		assertEquals(colaborador.getEmpresa().getNome(), "Empresa Teste");
+	}
+	
+	@Test
+	public void editColaborador() {
+		Empresa empresa = new Empresa();
+		
+		empresa.setNome("Empresa Teste");
+		empresa.setEmail("email@email.com");
+		empresa.setCnpj("12.123.123/00001-93");
+		empresa.setSenha("senha");
+		
+		//empresaController.save(empresa);
+		
+		Colaborador colaborador = new Colaborador();
+		
+		colaborador.setEmail("teste@teste.com");
+		colaborador.setNome("Teste");
+		colaborador.setSenha("teste");
+		colaborador.setEmpresa(empresa);
+		
+		//colaboradorController.save(colaborador);
+		
+		colaborador.setNome("Teste editado");
+		
+		//colaboradorController.save(colaborador);
+		
+		assertEquals(colaborador.getNome(), "Teste editado");
 	}
 }

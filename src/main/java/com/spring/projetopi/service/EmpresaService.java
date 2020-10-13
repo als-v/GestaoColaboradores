@@ -20,7 +20,7 @@ import com.spring.projetopi.model.Empresa;
 public class EmpresaService {
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	/*
 	 * Listagem das empresas (apenas para fins de teste)
@@ -29,7 +29,7 @@ public class EmpresaService {
 	@RequestMapping(value = "/empresas", method = RequestMethod.GET)
 	public ModelAndView getEmpresa() {
 		ModelAndView mv = new ModelAndView("empresas");
-		List<Empresa> empresas = empresaService.findAll();
+		List<Empresa> empresas = empresaController.findAll();
 		mv.addObject("empresas", empresas);
 		return mv;
 	}
@@ -49,8 +49,13 @@ public class EmpresaService {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
 			return "redirect:/cadastro";
 		}
-		System.out.println(empresa.getEmpresa_id());
-		empresaService.save(empresa);	
+		
+		if (!empresaController.verifyEmailColab(empresa.getEmail())) {
+			attributes.addFlashAttribute("mensagem", "E-mail já cadastrado no sistema, por favor tente novamente!");
+			return "redirect:/cadastro";
+		}
+		
+		empresaController.save(empresa);	
 		return "redirect:/menuEmpresa/" + empresa.getEmpresa_id();
 	}
 	
@@ -61,7 +66,7 @@ public class EmpresaService {
 	@RequestMapping(value = "/editarEmpresa/{id}", method = RequestMethod.GET)
 	public ModelAndView editarEmpresa(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("editarEmpresa");
-		Empresa empresa = empresaService.findById(id);
+		Empresa empresa = empresaController.findById(id);
 		mv.addObject("empresa", empresa);
 		return mv;
 	}
@@ -73,13 +78,13 @@ public class EmpresaService {
 			return "redirect:/editarEmpresa/" + id;
 		}
 		
-		Empresa empresa2 = empresaService.findById(id);
+		Empresa empresa2 = empresaController.findById(id);
 		
 		if (empresa2.getNome() != empresa.getNome()) {
 			empresa2.setNome(empresa.getNome());
 		}
 		
-		empresaService.save(empresa2);
+		empresaController.save(empresa2);
 		
 		return "redirect:/menuEmpresa/" + id;
 	}

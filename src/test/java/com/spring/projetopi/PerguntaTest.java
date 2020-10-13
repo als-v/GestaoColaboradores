@@ -14,7 +14,7 @@ import com.spring.projetopi.model.Pergunta;
 public class PerguntaTest {
 	
 	@Autowired
-	PerguntaController perguntaService;
+	PerguntaController perguntaController;
 	
 	@Test
 	public void createPergunta() {
@@ -26,6 +26,6 @@ public class PerguntaTest {
 		assertNotNull(pergunta_1.getPergunta_id());
 		assertEquals(pergunta_1.getPergunta(), "Pergunta Teste");
 
-		//perguntaService.save(pergunta_1);
+		//perguntaController.save(pergunta_1);
 	}
 }

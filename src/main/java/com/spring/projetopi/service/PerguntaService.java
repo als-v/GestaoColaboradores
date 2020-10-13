@@ -16,7 +16,7 @@ import com.spring.projetopi.model.Pergunta;
 public class PerguntaService {
 
 	@Autowired
-	PerguntaController perguntaService;
+	PerguntaController perguntaController;
 	
 	@RequestMapping(value = "/cadastroPergunta/{id}", method = RequestMethod.GET)
 	public String getPergunta() {
@@ -34,7 +34,7 @@ public class PerguntaService {
 		
 		pergunta1.setPergunta(pergunta);
 
-		perguntaService.save(pergunta1);
+		perguntaController.save(pergunta1);
 		
 		
 		return "redirect:/cadastroAlternativa/" + id + "/" + pergunta1.getPergunta_id();

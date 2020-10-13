@@ -22,35 +22,26 @@ import com.spring.projetopi.model.Empresa;
 public class ColaboradorService {
 
 	@Autowired
-	ColaboradorController colaboradorService;
+	ColaboradorController colaboradorController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 
 	@RequestMapping(value = "/colaboradores", method = RequestMethod.GET)
 	public ModelAndView getEmpresa() {
 		ModelAndView mv = new ModelAndView("colaboradores");
-		List<Colaborador> colaboradores = colaboradorService.findAll();
+		List<Colaborador> colaboradores = colaboradorController.findAll();
 		mv.addObject("colaboradores", colaboradores);
 		return mv;
 	}
 	
-	@SuppressWarnings("null")
 	@RequestMapping(value = "/colaboradores/{id}", method = RequestMethod.GET)
 	public ModelAndView getColaboradores(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("colaboradores");
-		List<Colaborador> colaboradores = colaboradorService.findAll();
-		
-		for(int i = 0; i < colaboradores.size(); i++) {
-			if(colaboradores.get(i).getEmpresa().getEmpresa_id() != id) {
-				colaboradores.remove(i);
-				i = -1;
-			}
-		}
-		
+		List<Colaborador> colaboradores = empresaController.findColaborador(id);
 		mv.addObject("colaboradores", colaboradores);
 		return mv;
-	}	
+	}
 	
 	@RequestMapping(value = "/cadastroColaborador/{id}", method = RequestMethod.GET)
 	public String GoToCadastro() {
@@ -64,17 +55,16 @@ public class ColaboradorService {
 			return "redirect:/cadastroColaborador/" + id;
 		}
 		
-		Empresa emp = empresaService.findById(id);
+		if (!colaboradorController.verifyEmailEmpresa(colaborador.getEmail())) {
+			attributes.addFlashAttribute("mensagem", "E-mail já cadastrado no sistema, por favor tente novamente!");
+			return "redirect:/cadastro";
+		}
+		
+		Empresa emp = empresaController.findById(id);
 		
 		colaborador.setEmpresa(emp);
 		
-		System.out.println(colaborador.getEmail());
-		System.out.println(colaborador.getSenha());
-		System.out.println(colaborador.getColaborador_id());
-		
-		colaboradorService.save(colaborador);
-		
-		System.out.println(colaborador.getColaborador_id());
+		colaboradorController.save(colaborador);
 		
 		return "redirect:/menuEmpresa/" + id;
 	}
@@ -88,7 +78,7 @@ public class ColaboradorService {
 	@RequestMapping(value = "/editarColaborador/{id}", method = RequestMethod.GET)
 	public ModelAndView editarColaborador(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("editarColaborador");
-		Colaborador colaborador = colaboradorService.findById(id);
+		Colaborador colaborador = colaboradorController.findById(id);
 		mv.addObject("colaborador", colaborador);
 		return mv;
 	}
@@ -101,13 +91,13 @@ public class ColaboradorService {
 			return "redirect:/editarEmpresa/" + id;
 		}
 		
-		Empresa empresa2 = empresaService.findById(id);
+		Empresa empresa2 = empresaController.findById(id);
 		
 		if (empresa2.getNome() != empresa.getNome()) {
 			empresa2.setNome(empresa.getNome());
 		}
 		
-		empresaService.save(empresa2);
+		empresaController.save(empresa2);
 		
 		return "redirect:/menuEmpresa/" + id;
 	}
