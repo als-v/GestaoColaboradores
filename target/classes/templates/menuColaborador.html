@@ -48,9 +48,6 @@
 			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
 				<div class="card-body" onClick="pesquisa()">
 					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;">
-						<!-- <a href="/cadastroColaborador"><span>Cadastrar colaborador</span></a>  -->
-						<!-- <button style="">Cadastrar colaborador</button> -->
-						<!-- <span>Cadastrar colaborador</span> -->
 						<span>Fazer Pesquisa</span>
 					</h4>
 				</div>
@@ -64,6 +61,10 @@
 	
 	function editar() {
 		window.location.href = "/editarColaborador/" + x.substr(38,38);
+	}
+	
+	function pesquisa() {
+		window.location.href = "/realizarPesquisa/" + x.substr(38,38);
 	}
 	</script>
 </body>

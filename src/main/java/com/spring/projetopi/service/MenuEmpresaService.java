@@ -16,7 +16,7 @@ import com.spring.projetopi.model.Empresa;
 public class MenuEmpresaService {
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	@Autowired
 	ColaboradorController colaboradorController;
@@ -24,7 +24,7 @@ public class MenuEmpresaService {
 	@RequestMapping(value = "/menuEmpresa/{id}", method = RequestMethod.GET)
 	public ModelAndView GoToMenuEmp(@PathVariable("id") Long id) {	
 		ModelAndView mv = new ModelAndView("menuEmpresa");
-		Empresa empresa = empresaService.findById(id);
+		Empresa empresa = empresaController.findById(id);
 		mv.addObject("empresa", empresa);
 	    return mv;
 	}

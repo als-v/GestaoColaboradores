@@ -23,13 +23,13 @@ import com.spring.projetopi.model.Questao;
 public class QuestaoTest {
 	
 	@Autowired
-	QuestaoController questaoService;
+	QuestaoController questaoController;
 	
 	@Autowired
-	PerguntaController perguntaService;
+	PerguntaController perguntaController;
 	
 	@Autowired
-	AlternativaController alternativaService;
+	AlternativaController alternativaController;
 	
 	@Test
 	public void createQuestao() {
@@ -38,7 +38,7 @@ public class QuestaoTest {
 		
 		pergunta_1.setPergunta("Pergunta Teste");
 		
-		//perguntaService.save(pergunta_1);
+		//perguntaController.save(pergunta_1);
 		
 		/* Criação das alternativas */
 		Alternativa alternativa_1 = new Alternativa();
@@ -47,7 +47,7 @@ public class QuestaoTest {
 		alternativa_1.setCorreto(false);
 		alternativa_1.setDescricao("Teste alternativa 1");
 		
-		//alternativaService.save(alternativa_1);
+		//alternativaController.save(alternativa_1);
 
 		Alternativa alternativa_2 = new Alternativa();
 		
@@ -55,7 +55,7 @@ public class QuestaoTest {
 		alternativa_2.setCorreto(true);
 		alternativa_2.setDescricao("Teste alternativa 2");
 		
-		//alternativaService.save(alternativa_2);
+		//alternativaController.save(alternativa_2);
 		
 		Alternativa alternativa_3 = new Alternativa();
 		
@@ -63,7 +63,7 @@ public class QuestaoTest {
 		alternativa_3.setCorreto(false);
 		alternativa_3.setDescricao("Teste alternativa 3");
 		
-		//alternativaService.save(alternativa_3);
+		//alternativaController.save(alternativa_3);
 
 		Alternativa alternativa_4 = new Alternativa();
 		
@@ -71,7 +71,7 @@ public class QuestaoTest {
 		alternativa_4.setCorreto(false);
 		alternativa_4.setDescricao("Teste alternativa 4");
 		
-		//alternativaService.save(alternativa_4);	
+		//alternativaController.save(alternativa_4);	
 		
 		Alternativa alternativa_5 = new Alternativa();
 		
@@ -79,7 +79,7 @@ public class QuestaoTest {
 		alternativa_5.setCorreto(false);
 		alternativa_5.setDescricao("Teste alternativa 5");
 		
-		//alternativaService.save(alternativa_5);
+		//alternativaController.save(alternativa_5);
 		List <Alternativa> alternativas = new ArrayList<Alternativa>();
 		
 		alternativas.add(alternativa_1);
@@ -130,6 +130,6 @@ public class QuestaoTest {
 			}
 		}
 		
-		//questaoService.save(questao_1);
+		//questaoController.save(questao_1);
 	}
 }

@@ -16,7 +16,7 @@ import com.spring.projetopi.model.Alternativa;
 public class AlternativaTest {
 	
 	@Autowired
-	AlternativaController alternativaService;
+	AlternativaController alternativaController;
 	
 	@Test
 	public void createAlternativa() {
@@ -31,7 +31,7 @@ public class AlternativaTest {
 		assertEquals(alternativa_1.getAlternativa(), 1);
 		assertEquals(alternativa_1.getDescricao(), "Teste alternativa 1");
 		
-		//alternativaService.save(alternativa_1);
+		//alternativaController.save(alternativa_1);
 
 		Alternativa alternativa_2 = new Alternativa();
 		
@@ -44,6 +44,6 @@ public class AlternativaTest {
 		assertEquals(alternativa_2.getAlternativa(), 2);
 		assertEquals(alternativa_2.getDescricao(), "Teste alternativa 2");
 		
-		//alternativaService.save(alternativa_2);
+		//alternativaController.save(alternativa_2);
 	}
 }

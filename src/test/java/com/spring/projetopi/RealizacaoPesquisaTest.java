@@ -24,13 +24,13 @@ import com.spring.projetopi.model.RealizacaoPesquisa;
 public class RealizacaoPesquisaTest {
 	
 	@Autowired
-	RealizacaoPesquisaController realizacaoPesquisaService;
+	RealizacaoPesquisaController realizacaoPesquisaController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
 	@Autowired
-	ColaboradorController colaboradorService;
+	ColaboradorController colaboradorController;
 	
 	@Test
 	public void createRealizacaoPesquisa() {
@@ -42,7 +42,7 @@ public class RealizacaoPesquisaTest {
 		empresa.setCnpj("12.123.123/00001-93");
 		empresa.setSenha("senha");
 		
-		//empresaService.save(empresa);
+		//empresaController.save(empresa);
 		
 		Colaborador colaborador = new Colaborador();
 		
@@ -51,7 +51,7 @@ public class RealizacaoPesquisaTest {
 		colaborador.setSenha("teste");
 		colaborador.setEmpresa(empresa);
 		
-		//colaboradorService.save(colaborador);
+		//colaboradorController.save(colaborador);
 		
 		/* ==== PESQUISA ==== */
 		
@@ -210,6 +210,6 @@ public class RealizacaoPesquisaTest {
 		assertEquals(realizacaoPesquisa.getAcertos(), 3);
 		assertEquals(realizacaoPesquisa.getErros(), 7);
 		
-		//realizacaoPesquisaService.save(realizacaoPesquisa);
+		//realizacaoPesquisaController.save(realizacaoPesquisa);
 	}
 }

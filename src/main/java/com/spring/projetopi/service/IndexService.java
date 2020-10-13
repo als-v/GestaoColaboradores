@@ -17,10 +17,10 @@ import com.spring.projetopi.model.Empresa;
 public class IndexService {
 
 	@Autowired
-	ColaboradorController colaboradorService;
+	ColaboradorController colaboradorController;
 	
 	@Autowired
-	EmpresaController empresaService;
+	EmpresaController empresaController;
 	
     @RequestMapping(value = "/")
     public String GoToIndex(){
@@ -29,32 +29,16 @@ public class IndexService {
     
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String verifyLoginColab(RedirectAttributes attributes, String email, String senha) {
-    	String id = email;
-    	String id2 = senha;
-        
-    	List<Colaborador> colaboradores = colaboradorService.findAll();
-        
-        List<Empresa> empresas = empresaService.findAll();
-        
-        for(int i = 0; i < colaboradores.size(); i++) {
-        	
-        	if(id.equals(colaboradores.get(i).getEmail()) && id2.equals(colaboradores.get(i).getSenha())) {
-                long id4 = colaboradores.get(i).getColaborador_id();
-        		return "redirect:/menuColaborador/" + id4;
-        	}
-        	
-        }
-
-        for(int i = 0; i < empresas.size(); i++) {
-        	
-        	if(id.equals(empresas.get(i).getEmail()) && id2.equals(empresas.get(i).getSenha())) {
-        		long id3 = empresas.get(i).getEmpresa_id();
-                return "redirect:/menuEmpresa/" + id3;
-        	}
-        	
-        }
-        
-        attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
-        return "redirect:/";
+    	long empresaLogin = empresaController.loginEmpresa(email, senha);
+    	long colaboradorLogin = colaboradorController.loginColaborador(email, senha);
+    	
+    	if(empresaLogin != -1 && colaboradorLogin == -1) {
+    		return "redirect:/menuEmpresa/" + empresaLogin;
+    	} else if (empresaLogin == -1 && colaboradorLogin != -1) {
+    		return "redirect:/menuColaborador/" + colaboradorLogin;
+    	} else {
+    		attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
+    		return "redirect:/";    		
+    	}
     }
 }
