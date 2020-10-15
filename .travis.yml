@@ -1,0 +1,11 @@
+dist: trusty
+language: java
+jdk:
+- oraclejdk11
+before_install:
+- export TZ=Brazil/East
+deploy:
+  provider: heroku
+  api_key:
+    - secure: 39358219-664b-4124-9cde-f59e2b1536d7
+  app: gestao-colaboradores
