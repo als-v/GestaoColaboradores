@@ -46,3 +46,9 @@
    - Finalizamos os casos de teste.
    - Finalizamos os ultimos ajustes que faltavam na construção do projeto (inverter controller e service).
    - Discutimos sobre o andamento do projeto.
+
+* 14/07/2020
+   - Discutimos sobre o andamento das issues.
+   - Decidimos fazer uma outra abordagem para a realização dos testes e para a visualização dos mesmos, visto que apareceram problemas que não são tão triviais para arrumar.
+   - Tentamos arrumar o Travis para o repositório.
+   - Estamos fazendo mais histórias de usuarios.
