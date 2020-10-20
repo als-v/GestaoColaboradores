@@ -17,16 +17,22 @@
 		<properties>
 			<java.version>11</java.version>
 		</properties>
-	
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 			</dependency>
 			<dependency>
-	   	 		<groupId>org.junit.jupiter</groupId>
-	    		<artifactId>junit-jupiter-engine</artifactId>
-	    		<version>5.5.2</version>
+			    <groupId>org.junit.jupiter</groupId>
+			    <artifactId>junit-jupiter-api</artifactId>
+			    <version>5.6.2</version>
+			    <scope>test</scope>
+			</dependency>
+			<dependency>
+			    <groupId>org.junit.jupiter</groupId>
+			    <artifactId>junit-jupiter-engine</artifactId>
+			    <version>5.6.2</version>
+			    <scope>test</scope>
 			</dependency>
 			<!-- 
 			<dependency>
@@ -96,6 +102,7 @@
 		</dependencies>
 	
 		<build>
+			<sourceDirectory>src/test/java/com/spring/projetopi</sourceDirectory>
 			<plugins>
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
