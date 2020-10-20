@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+
+	<title>Gestao de Colaboradores</title>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: #FBFBFB;">
+	<header>
+	
+		<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
+  			<a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
+		</nav>
+		
+	</header>
+
+	<section>
+	
+		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;" >
+			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
+  				<ol class="breadcrumb" style=" background-color: #F6F6F6">
+  				    <li class="breadcrumb-item" aria-current="page">
+    					<a href="/">Sair</a>
+    				</li>
+    				<li class="breadcrumb-item" aria-current="page" onClick="redirecionar()">
+    					<a href="#">Menu</a>
+    				</li>
+    				<li class="breadcrumb-item active" aria-current="page">
+    				Cadastro de Colaborador
+    				</li>
+  				</ol>
+			</nav>
+			
+			<div>
+				<th:block th:include="validate/empresaValidate"></th:block>
+				<form method="post">
+				
+					<div class="form-group">
+						<label for="nomeId">Nome do colaborador *</label>
+						<input type="text" class="form-control" name="nome" id="nomeId" placeholder="Gestão Colaboradores">
+					</div>
+					
+					<div class="form-group">
+						<label for="emailId">E-mail do colaborador *</label>
+						<input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp" placeholder="exemplo@exemplo.com">
+						<small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar o e-mail do seu colaborador com ninguém.</small>
+					</div>
+					
+					<div class="form-group">
+						<label for="senhaId">Crie uma senha para o colaborador *</label>
+						<input type="password" class="form-control" name="senha" id="senhaId" placeholder="senha">
+					</div>
+					
+					<small class="form-text text-muted*">[*] Campos obrigatórios</small>
+					
+					<div class="row mx-md-n5">
+						<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
+						<a href="#" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;" onClick="redirecionar()">Cancelar</a>
+					</div>
+					
+				</form>
+			
+			</div>
+			
+			
+		</div>
+	
+	</section>
+	<script>
+		function redirecionar(){
+			var x = document.URL;
+			
+			window.location.href = "/menuEmpresa/" + x.substr(42,42);
+		}
+	</script>
+</body>
+</html>

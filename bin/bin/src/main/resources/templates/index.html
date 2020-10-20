@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+
+	<title>Gestao de Colaboradores</title>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<section>
+	
+		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+		
+				<div>
+					<h1 style="font-size: 25px; text-align: center; margin: 10;">Gestão de Colaboradores</h1>
+				</div>
+			<div class="card shadow-sm bg-white rounded" style="margin-top: 20px;">	
+				<div class="card-body">
+					<div class="p-4">
+					<th:block th:include="validate/empresaValidate"></th:block>
+					  <form class="px-4 py-3" method="post">
+					    <div class="form-group">
+					      <label for="exampleDropdownFormEmail1">E-mail</label>
+					      <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@exemplo.com">
+					    </div>
+					    <div class="form-group">
+					      <label for="exampleDropdownFormPassword1">Senha</label>
+					      <input type="password" class="form-control" id="senha" name="senha" placeholder="senha">
+					    </div>
+					    <div class="form-group">
+					      <div class="form-check">
+					        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+					        <label class="form-check-label" for="dropdownCheck">
+					          Lembre de mim
+					        </label>
+					      </div>
+					    </div>
+					    <button type="submit" class="btn btn-outline-secondary">Entrar</button>
+					  </form>
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item w-75" href="/cadastro">Novo por aqui? Faça sua conta agora mesmo!</a>
+					  <a class="dropdown-item w-50" href="#">Esqueceu a senha?</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	
+	</section>
+</body>
+</html>

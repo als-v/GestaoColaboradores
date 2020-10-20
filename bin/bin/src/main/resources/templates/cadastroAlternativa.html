@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+
+	<title>Gestao de Colaboradores</title>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: #FBFBFB;">
+	<header>
+	
+		<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
+  			<a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
+		</nav>
+		
+	</header>
+
+	<section>
+	
+		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;" >
+			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
+  				<ol class="breadcrumb" style=" background-color: #F6F6F6">
+  				    <li class="breadcrumb-item" aria-current="page">
+    					<a href="/">Sair</a>
+    				</li>
+    				<li class="breadcrumb-item" aria-current="page" onClick="redirecionar()">
+    					<a href="#" onClick="menu()">Menu</a>
+    				</li>
+    				<li class="breadcrumb-item active" aria-current="page">
+    				Cadastro Alternativa
+    				</li>
+  				</ol>
+			</nav>
+			
+			<div>
+				<th:block th:include="validate/empresaValidate"></th:block>
+				<form method="post">
+				
+				<div class="form-group w-25" style="widht: 20px;">
+				      <label for="alternativa">Alternativa n°:&nbsp&nbsp&nbsp</label>
+				      <span name="alternativa" id="alternativa" th:text="${a.alternativa}"></span>
+				 </div>
+				
+				  <div class="form-group">
+				      <label for="correto1">Correto</label>
+				      <input type="radio" name="correto" id="correto1" value="true" checked>
+
+				      <label for="correto2" style="margin-left: 10px">Incorreto</label>
+				      <input type="radio" name="correto" id="correto2" value="false">
+				  </div>				  
+				  
+				  <div class="form-group">
+				      <label for="descricao">Descrição</label>
+				      <input type="text" class="form-control" name="descricao" id="descicao">
+				  </div>
+				  		  
+				  <div class="row mx-md-n5">
+				  		<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Próximo</button>
+						<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
+				  </div>
+				  
+				</form>
+			</div>
+			
+		</div>
+	
+	</section>
+	<script>
+	var x = document.URL;
+	
+	    function calculate(){
+	    	x = x.substr(42,42)
+	    	if(x.lenght == 3){
+	    		return 1
+	    	}
+	    	
+	    }
+	    
+		function menu(){
+			
+			// pega a parte com os 2 ids
+			x = x.substr(42,42)
+			// tiro um id e deixo so o da empresa
+			x = x.slice(0, -2)
+			window.location.href = "/menuEmpresa/" + x;
+		}
+	</script>
+</body>
+</html>
