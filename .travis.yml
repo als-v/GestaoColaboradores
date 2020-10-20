@@ -10,8 +10,6 @@ before_install:
 - chmod +x mvnw
 before_script:
 - psql -c 'create database gestaocolaboradores;' -U postgres
-script: 
-- mvn clean verify
 deploy:
   skip_cleanup: true
   provider: heroku
