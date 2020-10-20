@@ -84,6 +84,10 @@ public class EmpresaService {
 			empresa2.setNome(empresa.getNome());
 		}
 		
+		if (empresa2.getSenha() != empresa.getSenha()) {
+			empresa2.setSenha(empresa.getSenha());
+		}
+		
 		empresaController.save(empresa2);
 		
 		return "redirect:/menuEmpresa/" + id;
