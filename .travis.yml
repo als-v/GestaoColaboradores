@@ -1,11 +1,15 @@
 sudo: true
 dist: trusty
 language: java
+services:
+- postgresql
 jdk:
 - oraclejdk11
 before_install:
 - export TZ=Brazil/East
 - chmod +x mvnw
+before_script:
+- psql -c 'create database gestaocolaboradores;' -U postgres
 deploy:
   provider: heroku
   api_key:
