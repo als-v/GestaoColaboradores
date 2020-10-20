@@ -13,5 +13,5 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    - secure: 39358219-664b-4124-9cde-f59e2b1536d7
+    - secure: $HEROKU_API_KEY
   app: gestao-colaboradores
