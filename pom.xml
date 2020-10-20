@@ -110,7 +110,12 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.7.0</version>
             <configuration>
-                <release>10</release>
+                <source>11</source>
+				<target>11</target>
+				<testSource>11</testSource>
+				<testTarget>11</testTarget>
+				<showDeprecation>true</showDeprecation>
+				<compilerArgument>-Xlint:unchecked</compilerArgument>
             </configuration>
         </plugin>
 		</plugins>
