@@ -11,6 +11,7 @@ before_install:
 before_script:
 - psql -c 'create database gestaocolaboradores;' -U postgres
 deploy:
+  skip_cleanup: true
   provider: heroku
   api_key:
     - secure: $HEROKU_API_KEY
