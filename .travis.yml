@@ -14,5 +14,5 @@ deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    - secure: d2cc5c98-e99e-4cd9-a51e-d66445c58c87
+    - secure: e5a923f9-9baa-42dc-b6d9-cb564c58c636
   app: gestao-colaboradores
