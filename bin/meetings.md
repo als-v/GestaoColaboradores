@@ -26,13 +26,29 @@
    - Estamos receosos quanto a uma issue da 2° sprint: Login.
    
 * 16/09/2020
-   - Estamos com um problema referente ao cadastro das alternativas, tanto os casos de teste como o sistema estão gerando erros
-   - Optamos por realizar um login preguiçoso (sem autenticação)
-   - Arrumamos as issues do zenhub
-   - Adicionamos mais issues no product backlog
+   - Estamos com um problema referente ao cadastro das alternativas, tanto os casos de teste como o sistema estão gerando erros.
+   - Optamos por realizar um login preguiçoso (sem autenticação).
+   - Arrumamos as issues do zenhub.
+   - Adicionamos mais issues no product backlog.
    
 * 23/09/2020
-   - Achamos um problema referente ao cadastro de colaboradores (by: guizin)
-   - Conversamos sobre o projeto estar crescendo (no quesito banco de dados, e futuras adições)
+   - Achamos um problema referente ao cadastro de colaboradores (by: guizin).
+   - Conversamos sobre o projeto estar crescendo (no quesito banco de dados, e futuras adições).
    - Discutimos sobre a possibilidade de subir o banco para a AWS
-   - Discutimos sobre o login
+   - Discutimos sobre o login.
+   
+* 30/09/2020
+   - Criamos novas issues.
+   - Dividimos as issues.
+   - Começamos a fazer as issues.
+
+* 07/10/2020
+   - Finalizamos os casos de teste.
+   - Finalizamos os ultimos ajustes que faltavam na construção do projeto (inverter controller e service).
+   - Discutimos sobre o andamento do projeto.
+
+* 14/07/2020
+   - Discutimos sobre o andamento das issues.
+   - Decidimos fazer uma outra abordagem para a realização dos testes e para a visualização dos mesmos, visto que apareceram problemas que não são tão triviais para arrumar.
+   - Tentamos arrumar o Travis para o repositório.
+   - Estamos fazendo mais histórias de usuarios.
