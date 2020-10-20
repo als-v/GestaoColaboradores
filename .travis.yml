@@ -14,5 +14,7 @@ deploy:
   skip_cleanup: true
   provider: heroku
   api_key:
-    - secure: e5a923f9-9baa-42dc-b6d9-cb564c58c636
+    - secure: $API_KEY
   app: gestao-colaboradores
+  on:
+    repo: als-v/GestaoColaboradores
