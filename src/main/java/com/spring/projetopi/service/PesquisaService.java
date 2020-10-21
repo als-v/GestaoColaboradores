@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.projetopi.controller.ColaboradorController;
 import com.spring.projetopi.controller.PesquisaController;
 import com.spring.projetopi.controller.RealizacaoPesquisaController;
+import com.spring.projetopi.model.Alternativa;
 import com.spring.projetopi.model.Colaborador;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.RealizacaoPesquisa;
@@ -61,11 +63,24 @@ public class PesquisaService {
 		mv.addObject("pesquisas", pesquisas);
 		
 		return mv;
-	}	
+	}
 	
-	@RequestMapping(value = "/realizarPesquisa/{id1}/{id2}", method = RequestMethod.GET)
-	public ModelAndView doPesquisa(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
-		ModelAndView mv = new ModelAndView("realizarPesquisa");
+	@RequestMapping(value = "/realizarPesquisa/{id}", method = RequestMethod.POST)
+	public String makeColaboradorPesquisas(RedirectAttributes attributes, @PathVariable("id") Long id) {
+		Pesquisa pesquisa = realizacaoPesquisaController.getPesquisa(colaboradorController.findById(id));
+		
+		if(pesquisa != null) {
+			return "redirect:pesquisa/" + id + "/" + pesquisa.getPesquisa_id();			
+		}
+		attributes.addFlashAttribute("mensagem", "Você já fez todos as pesquisas!");
+		
+		return "redirect:/realizarPesquisa/" + id;
+		
+	}
+	
+	@RequestMapping(value = "/realizarPesquisa/pesquisa/{id1}/{id2}", method = RequestMethod.GET)
+	public ModelAndView getResultPesquisa(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
+		ModelAndView mv = new ModelAndView("fazerPesquisa");
 		Pesquisa pesquisa = pesquisaController.findById(id2);
 		
 		mv.addObject("pesquisa", pesquisa);
@@ -73,8 +88,8 @@ public class PesquisaService {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/realizarPesquisa/{id1}/{id2}", method = RequestMethod.POST)
-	public String resultPesquisa(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
+	@RequestMapping(value = "/realizarPesquisa/pesquisa/{id1}/{id2}", method = RequestMethod.POST)
+	public String resultPesquisa(Alternativa a1, Alternativa a2, Alternativa a3, Alternativa a4, Alternativa a5, @PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
 		Colaborador colaborador = colaboradorController.findById(id1);
 		Pesquisa pesquisa = pesquisaController.findById(id2);
 		RealizacaoPesquisa realizacaoPesquisa = new RealizacaoPesquisa();
@@ -84,7 +99,12 @@ public class PesquisaService {
 		realizacaoPesquisa.setAcertos(12);
 		realizacaoPesquisa.setErros(3);
 		
-		realizacaoPesquisaController.save(realizacaoPesquisa);
+		System.out.println(a1.getAlternativa_id());
+		System.out.println(a1.isCorreto());
+		System.out.println(a2.getAlternativa_id());
+		System.out.println(a2.isCorreto());
+		
+		//realizacaoPesquisaController.save(realizacaoPesquisa);
 		
 		return "redirect:/menuColaborador/" + id1;
 	}

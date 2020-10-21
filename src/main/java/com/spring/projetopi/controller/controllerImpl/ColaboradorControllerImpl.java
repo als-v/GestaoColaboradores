@@ -42,6 +42,8 @@ public class ColaboradorControllerImpl implements ColaboradorController {
         for(int i = 0; i < colaboradores.size(); i++) {
         	if(email.equals(colaboradores.get(i).getEmail()) && senha.equals(colaboradores.get(i).getSenha())) {
         		return colaboradores.get(i).getColaborador_id();
+        	}else if(email.equals(colaboradores.get(i).getEmail()) && !senha.equals(senha.contentEquals(colaboradores.get(i).getSenha()))) {
+        		return -2;
         	}
         }
         

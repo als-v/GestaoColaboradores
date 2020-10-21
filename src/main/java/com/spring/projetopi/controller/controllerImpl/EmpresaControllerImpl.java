@@ -56,6 +56,8 @@ public class EmpresaControllerImpl implements EmpresaController {
 		for(int i = 0; i < empresas.size(); i++) {
         	if(email.equals(empresas.get(i).getEmail()) && senha.equals(empresas.get(i).getSenha())) {
                 return empresas.get(i).getEmpresa_id();
+        	}else if(email.equals(empresas.get(i).getEmail()) && !senha.equals(empresas.get(i).getSenha())) {
+        		return -2;
         	}
         }
 		
