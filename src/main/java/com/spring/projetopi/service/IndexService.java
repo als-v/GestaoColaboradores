@@ -23,7 +23,7 @@ public class IndexService {
 	EmpresaController empresaController;
 	
     @RequestMapping(value = "/")
-    public String GoToIndex(){
+    public String GoToIndex(){ 
         return "index";
     }
     

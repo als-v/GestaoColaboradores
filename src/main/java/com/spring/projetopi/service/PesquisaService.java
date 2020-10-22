@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -89,7 +90,7 @@ public class PesquisaService {
 	}
 	
 	@RequestMapping(value = "/realizarPesquisa/pesquisa/{id1}/{id2}", method = RequestMethod.POST)
-	public String resultPesquisa(Alternativa a1, Alternativa a2, Alternativa a3, Alternativa a4, Alternativa a5, @PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
+	public String resultPesquisa(@RequestParam("teste") List<Boolean> Alternativas, Alternativa a2, Alternativa a1, Alternativa a3, Alternativa a4, Alternativa a5, @PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
 		Colaborador colaborador = colaboradorController.findById(id1);
 		Pesquisa pesquisa = pesquisaController.findById(id2);
 		RealizacaoPesquisa realizacaoPesquisa = new RealizacaoPesquisa();
@@ -99,10 +100,17 @@ public class PesquisaService {
 		realizacaoPesquisa.setAcertos(12);
 		realizacaoPesquisa.setErros(3);
 		
+		System.out.println(Alternativas);
 		System.out.println(a1.getAlternativa_id());
 		System.out.println(a1.isCorreto());
 		System.out.println(a2.getAlternativa_id());
 		System.out.println(a2.isCorreto());
+		System.out.println(a3.getAlternativa_id());
+		System.out.println(a3.isCorreto());
+		System.out.println(a4.getAlternativa_id());
+		System.out.println(a4.isCorreto());
+		System.out.println(a5.getAlternativa_id());
+		System.out.println(a5.isCorreto());
 		
 		//realizacaoPesquisaController.save(realizacaoPesquisa);
 		
