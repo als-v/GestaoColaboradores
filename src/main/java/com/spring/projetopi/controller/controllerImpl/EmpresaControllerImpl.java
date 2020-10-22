@@ -29,6 +29,19 @@ public class EmpresaControllerImpl implements EmpresaController {
 	public Empresa findById(long id) {
 		return empresaRepository.findById(id).get();
 	}
+	
+	@Override
+	public Empresa findByEmail(String email) {
+		List<Empresa> empresas = empresaRepository.findAll();
+		
+		for(int i = 0; i < empresas.size(); i++) {
+			if(email.equals(empresas.get(i).getEmail())) {
+				return empresas.get(i);
+			}
+		}
+		
+		return null;
+	}
 
 	@Override
 	public Empresa save(Empresa empresa) {
@@ -56,6 +69,8 @@ public class EmpresaControllerImpl implements EmpresaController {
 		for(int i = 0; i < empresas.size(); i++) {
         	if(email.equals(empresas.get(i).getEmail()) && senha.equals(empresas.get(i).getSenha())) {
                 return empresas.get(i).getEmpresa_id();
+        	}else if(email.equals(empresas.get(i).getEmail()) && !senha.equals(empresas.get(i).getSenha())) {
+        		return -2;
         	}
         }
 		

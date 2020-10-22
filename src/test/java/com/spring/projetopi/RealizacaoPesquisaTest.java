@@ -1,45 +1,59 @@
 package com.spring.projetopi;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.ColaboradorController;
 import com.spring.projetopi.controller.EmpresaController;
-import com.spring.projetopi.controller.PesquisaController;
+import com.spring.projetopi.controller.RealizacaoPesquisaController;
 import com.spring.projetopi.model.Alternativa;
+import com.spring.projetopi.model.Colaborador;
 import com.spring.projetopi.model.Empresa;
 import com.spring.projetopi.model.Pergunta;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.Questao;
+import com.spring.projetopi.model.RealizacaoPesquisa;
 
 @SpringBootTest
-public class PesquisaTest {
+public class RealizacaoPesquisaTest {
 	
 	@Autowired
-	PesquisaController pesquisaController;
+	RealizacaoPesquisaController realizacaoPesquisaController;
 	
 	@Autowired
 	EmpresaController empresaController;
 	
+	@Autowired
+	ColaboradorController colaboradorController;
+	
 	@Test
-	public void createTest() {
-		/* Criação da empresa */
+	public void createRealizacaoPesquisa() {
+		/* ==== COLABORADOR ==== */
 		Empresa empresa = new Empresa();
 		
 		empresa.setNome("Empresa Teste");
 		empresa.setEmail("email@email.com");
 		empresa.setCnpj("12.123.123/00001-93");
 		empresa.setSenha("senha");
-				
+		
 		//empresaController.save(empresa);
 		
-		/*====== Criação das questões ====== */
+		Colaborador colaborador = new Colaborador();
+		
+		colaborador.setEmail("teste@teste.com");
+		colaborador.setNome("Teste");
+		colaborador.setSenha("teste");
+		colaborador.setEmpresa(empresa);
+		
+		//colaboradorController.save(colaborador);
+		
+		/* ==== PESQUISA ==== */
 		
 		/* Criação das perguntas */
 		Pergunta pergunta_1 = new Pergunta();
@@ -181,19 +195,21 @@ public class PesquisaTest {
 		pesquisa_1.setNome("Pesquisa Teste");
 		pesquisa_1.setQuestoes(questoes);
 		
-		assertNotNull(pesquisa_1.getPesquisa_id());
-		assertEquals(pesquisa_1.getNome(), "Pesquisa Teste");
-		assertEquals(pesquisa_1.getEmpresa().getNome(), empresa.getNome());
+		//pesquisaService.save(pesquisa_1);
 		
-		for(int i = 0; i < pesquisa_1.getQuestoes().size(); i++) {
-			if(i == 0) {
-				assertEquals(pesquisa_1.getQuestoes().get(i).getPergunta().getPergunta(), questao_1.getPergunta().getPergunta());
-			}
-			if(i == 2) {
-				assertEquals(pesquisa_1.getQuestoes().get(i).getPergunta().getPergunta(), questao_2.getPergunta().getPergunta());
-			}
-		}
+		/* ==== REALIZAÇÃO - PESQUISA ==== */
+		RealizacaoPesquisa realizacaoPesquisa = new RealizacaoPesquisa();
 		
-		//pesquisaController.save(pesquisa_1);
+		realizacaoPesquisa.setColaborador(colaborador);
+		realizacaoPesquisa.setPesquisa(pesquisa_1);
+		realizacaoPesquisa.setAcertos(3);
+		realizacaoPesquisa.setErros(7);
+		
+		assertEquals(realizacaoPesquisa.getColaborador().getNome(), colaborador.getNome());
+		assertEquals(realizacaoPesquisa.getPesquisa().getNome(), pesquisa_1.getNome());
+		assertEquals(realizacaoPesquisa.getAcertos(), 3);
+		assertEquals(realizacaoPesquisa.getErros(), 7);
+		
+		//realizacaoPesquisaController.save(realizacaoPesquisa);
 	}
 }

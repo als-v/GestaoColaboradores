@@ -23,7 +23,7 @@ public class IndexService {
 	EmpresaController empresaController;
 	
     @RequestMapping(value = "/")
-    public String GoToIndex(){
+    public String GoToIndex(){ 
         return "index";
     }
     
@@ -32,13 +32,16 @@ public class IndexService {
     	long empresaLogin = empresaController.loginEmpresa(email, senha);
     	long colaboradorLogin = colaboradorController.loginColaborador(email, senha);
     	
-    	if(empresaLogin != -1 && colaboradorLogin == -1) {
+    	if((empresaLogin != -1 && empresaLogin != -2) && colaboradorLogin == -1) {
     		return "redirect:/menuEmpresa/" + empresaLogin;
-    	} else if (empresaLogin == -1 && colaboradorLogin != -1) {
+    	} else if (empresaLogin == -1 && (colaboradorLogin != -1 && colaboradorLogin != -2)) {
     		return "redirect:/menuColaborador/" + colaboradorLogin;
+    	} else if(empresaLogin == -2 || colaboradorLogin == -2){
+    		attributes.addFlashAttribute("mensagem", "Senha incorreta, por favor tente novamente");
+    		return "redirect:/";
     	} else {
-    		attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
-    		return "redirect:/";    		
+    		attributes.addFlashAttribute("mensagem", "Erro, os dados informados não estão cadastrados no sistema! Por favor tente novamente");
+    		return "redirect:/";
     	}
     }
 }

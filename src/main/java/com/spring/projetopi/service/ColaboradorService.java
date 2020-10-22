@@ -57,7 +57,7 @@ public class ColaboradorService {
 		
 		if (!colaboradorController.verifyEmailEmpresa(colaborador.getEmail())) {
 			attributes.addFlashAttribute("mensagem", "E-mail já cadastrado no sistema, por favor tente novamente!");
-			return "redirect:/cadastro";
+			return "redirect:/cadastroColaborador/" + id;
 		}
 		
 		Empresa emp = empresaController.findById(id);
