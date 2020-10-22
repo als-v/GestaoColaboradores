@@ -38,7 +38,7 @@ public class QuestaoTest {
 		
 		pergunta_1.setPergunta("Pergunta Teste");
 		
-		//perguntaController.save(pergunta_1);
+		perguntaController.save(pergunta_1);
 		
 		/* Criação das alternativas */
 		Alternativa alternativa_1 = new Alternativa();
@@ -47,7 +47,7 @@ public class QuestaoTest {
 		alternativa_1.setCorreto(false);
 		alternativa_1.setDescricao("Teste alternativa 1");
 		
-		//alternativaController.save(alternativa_1);
+		alternativaController.save(alternativa_1);
 
 		Alternativa alternativa_2 = new Alternativa();
 		
@@ -55,7 +55,7 @@ public class QuestaoTest {
 		alternativa_2.setCorreto(true);
 		alternativa_2.setDescricao("Teste alternativa 2");
 		
-		//alternativaController.save(alternativa_2);
+		alternativaController.save(alternativa_2);
 		
 		Alternativa alternativa_3 = new Alternativa();
 		
@@ -63,7 +63,7 @@ public class QuestaoTest {
 		alternativa_3.setCorreto(false);
 		alternativa_3.setDescricao("Teste alternativa 3");
 		
-		//alternativaController.save(alternativa_3);
+		alternativaController.save(alternativa_3);
 
 		Alternativa alternativa_4 = new Alternativa();
 		
@@ -71,7 +71,7 @@ public class QuestaoTest {
 		alternativa_4.setCorreto(false);
 		alternativa_4.setDescricao("Teste alternativa 4");
 		
-		//alternativaController.save(alternativa_4);	
+		alternativaController.save(alternativa_4);	
 		
 		Alternativa alternativa_5 = new Alternativa();
 		
@@ -79,7 +79,8 @@ public class QuestaoTest {
 		alternativa_5.setCorreto(false);
 		alternativa_5.setDescricao("Teste alternativa 5");
 		
-		//alternativaController.save(alternativa_5);
+		alternativaController.save(alternativa_5);
+		
 		List <Alternativa> alternativas = new ArrayList<Alternativa>();
 		
 		alternativas.add(alternativa_1);
@@ -93,6 +94,8 @@ public class QuestaoTest {
 		
 		questao_1.setPergunta(pergunta_1);
 		questao_1.setAlternativas(alternativas);
+
+		questaoController.save(questao_1);
 		
 		assertNotNull(questao_1.getQuestao_id());
 		assertEquals(questao_1.getPergunta().getPergunta(), pergunta_1.getPergunta());
@@ -129,7 +132,5 @@ public class QuestaoTest {
 				break;
 			}
 		}
-		
-		//questaoController.save(questao_1);
 	}
 }
