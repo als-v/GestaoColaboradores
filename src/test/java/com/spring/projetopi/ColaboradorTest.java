@@ -24,52 +24,72 @@ public class ColaboradorTest {
 	public void createColaborador() {
 		Empresa empresa = new Empresa();
 		
-		empresa.setNome("Empresa Teste");
-		empresa.setEmail("email@email.com");
-		empresa.setCnpj("12.123.123/00001-93");
+		empresa.setNome("Teste Empresa Colaborador 1");
+		empresa.setEmail("empresacolaboradorteste1@empresacolaboradorteste1.com");
+		empresa.setCnpj("00.000.000/00000-00");
 		empresa.setSenha("senha");
 		
-		//empresaController.save(empresa);
+		if(colaboradorController.verifyEmailEmpresa("empresacolaboradorteste1@empresacolaboradorteste1.com") == true) {
+			empresaController.save(empresa);			
+		} else {
+			empresa = empresaController.findByEmail("empresacolaboradorteste1@empresacolaboradorteste1.com");
+		}
 		
 		Colaborador colaborador = new Colaborador();
 		
-		colaborador.setEmail("teste@teste.com");
-		colaborador.setNome("Teste");
+		colaborador.setNome("Teste Colaborador 1");
+		colaborador.setEmail("testecolaborador1@testecolaborador1.com");
 		colaborador.setSenha("teste");
 		colaborador.setEmpresa(empresa);
 		
-		//colaboradorController.save(colaborador);
+		if(colaboradorController.verifyEmailEmpresa("testecolaborador1@testecolaborador1.com")) {
+			colaboradorController.save(colaborador);			
+		}else {
+			colaborador = colaboradorController.findByEmail("testecolaborador1@testecolaborador1.com");
+		}
 		
-		assertEquals(colaborador.getEmail(), "teste@teste.com");
-		assertEquals(colaborador.getNome(), "Teste");
+		assertEquals(colaborador.getNome(), "Teste Colaborador 1");
+		assertEquals(colaborador.getEmail(), "testecolaborador1@testecolaborador1.com");
 		assertEquals(colaborador.getSenha(), "teste");
-		assertEquals(colaborador.getEmpresa().getNome(), "Empresa Teste");
+		assertEquals(colaborador.getEmpresa().getNome(), "Teste Empresa Colaborador 1");
 	}
 	
 	@Test
 	public void editColaborador() {
 		Empresa empresa = new Empresa();
 		
-		empresa.setNome("Empresa Teste");
-		empresa.setEmail("email@email.com");
-		empresa.setCnpj("12.123.123/00001-93");
+		empresa.setNome("Teste Empresa Colaborador 2");
+		empresa.setEmail("empresacolaboradorteste2@empresacolaboradorteste2.com");
+		empresa.setCnpj("00.000.000/00000-00");
 		empresa.setSenha("senha");
 		
-		//empresaController.save(empresa);
+		if(colaboradorController.verifyEmailEmpresa("empresacolaboradorteste2@empresacolaboradorteste2.com") == true) {
+			empresaController.save(empresa);			
+		} else {
+			empresa = empresaController.findByEmail("empresacolaboradorteste2@empresacolaboradorteste2.com");
+		}
 		
 		Colaborador colaborador = new Colaborador();
 		
-		colaborador.setEmail("teste@teste.com");
-		colaborador.setNome("Teste");
+		colaborador.setNome("Teste Colaborador 2");
+		colaborador.setEmail("testecolaborador2@testecolaborador2.com");
 		colaborador.setSenha("teste");
 		colaborador.setEmpresa(empresa);
 		
-		//colaboradorController.save(colaborador);
+		if(colaboradorController.verifyEmailEmpresa("testecolaborador2@testecolaborador2.com")) {
+			colaboradorController.save(colaborador);			
+		}else {
+			colaborador = colaboradorController.findByEmail("testecolaborador2@testecolaborador2.com");
+		}
 		
-		colaborador.setNome("Teste editado");
+		Colaborador colaboradorEdit = colaboradorController.findById(colaborador.getColaborador_id());
 		
-		//colaboradorController.save(colaborador);
+		colaboradorEdit.setNome("Teste editado");
 		
-		assertEquals(colaborador.getNome(), "Teste editado");
+		colaboradorController.save(colaboradorEdit);
+		
+		Colaborador result = colaboradorController.findById(colaboradorEdit.getColaborador_id());
+		
+		assertEquals(result.getNome(), "Teste editado");
 	}
 }

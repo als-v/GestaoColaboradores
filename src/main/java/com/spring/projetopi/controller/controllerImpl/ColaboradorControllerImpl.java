@@ -29,6 +29,19 @@ public class ColaboradorControllerImpl implements ColaboradorController {
 	public Colaborador findById(long id) {
 		return colaboradorRepository.findById(id).get();
 	}
+	
+	@Override
+	public Colaborador findByEmail(String email) {
+		List<Colaborador> colaboradores = colaboradorRepository.findAll();
+		
+		for(int i = 0; i < colaboradores.size(); i++) {
+			if(email.equals(colaboradores.get(i).getEmail())) {
+				return colaboradores.get(i);
+			}
+		}
+		
+		return null;
+	}
 
 	@Override
 	public Colaborador save(Colaborador colaborador) {

@@ -1,5 +1,6 @@
 package com.spring.projetopi.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,29 +91,22 @@ public class PesquisaService {
 	}
 	
 	@RequestMapping(value = "/realizarPesquisa/pesquisa/{id1}/{id2}", method = RequestMethod.POST)
-	public String resultPesquisa(@RequestParam("teste") List<Boolean> Alternativas, Alternativa a2, Alternativa a1, Alternativa a3, Alternativa a4, Alternativa a5, @PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
+	public String resultPesquisa(@RequestParam("teste") List<Boolean> Alternativas, @PathVariable("id1") Long id1, @PathVariable("id2") Long id2) {
 		Colaborador colaborador = colaboradorController.findById(id1);
 		Pesquisa pesquisa = pesquisaController.findById(id2);
 		RealizacaoPesquisa realizacaoPesquisa = new RealizacaoPesquisa();
 		
 		realizacaoPesquisa.setColaborador(colaborador);
 		realizacaoPesquisa.setPesquisa(pesquisa);
-		realizacaoPesquisa.setAcertos(12);
-		realizacaoPesquisa.setErros(3);
+
+		List<Boolean> check = realizacaoPesquisaController.checkValues(Alternativas);
+
+		List<Integer> result = realizacaoPesquisaController.calcAcertos(pesquisa, check);
 		
-		System.out.println(Alternativas);
-		System.out.println(a1.getAlternativa_id());
-		System.out.println(a1.isCorreto());
-		System.out.println(a2.getAlternativa_id());
-		System.out.println(a2.isCorreto());
-		System.out.println(a3.getAlternativa_id());
-		System.out.println(a3.isCorreto());
-		System.out.println(a4.getAlternativa_id());
-		System.out.println(a4.isCorreto());
-		System.out.println(a5.getAlternativa_id());
-		System.out.println(a5.isCorreto());
+		realizacaoPesquisa.setAcertos(result.get(0));
+		realizacaoPesquisa.setErros(result.get(1));
 		
-		//realizacaoPesquisaController.save(realizacaoPesquisa);
+		realizacaoPesquisaController.save(realizacaoPesquisa);
 		
 		return "redirect:/menuColaborador/" + id1;
 	}

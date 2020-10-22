@@ -12,4 +12,6 @@ public interface RealizacaoPesquisaController {
 	RealizacaoPesquisa findById(long id);
 	RealizacaoPesquisa save(RealizacaoPesquisa realizacaoPesquisa);
 	Pesquisa getPesquisa(Colaborador colaborador);
+	List<Boolean> checkValues(List<Boolean> list);
+	List<Integer> calcAcertos(Pesquisa pesquisa, List<Boolean> values);
 }

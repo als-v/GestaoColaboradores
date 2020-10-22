@@ -72,4 +72,45 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 		return null;
 	}
 	
+	@Override
+	public List<Boolean> checkValues(List<Boolean> list){
+		List<Boolean> check = new ArrayList<Boolean>();
+		
+		for(int i = 0; i < list.size(); i++) {
+			if (list.get(i) == false) {
+				check.add(false);
+			} else {
+				check.add(true);
+				i = i + 1;
+			}
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public List<Integer> calcAcertos(Pesquisa pesquisa, List<Boolean> values){
+		List<Integer> calculo = new ArrayList<Integer>();
+		
+		int acertos = 0;
+		int erros = 0;
+		
+		for(int i = 0; i < pesquisa.getQuestoes().size(); i++) {
+			for(int j = 0; j < pesquisa.getQuestoes().get(i).getAlternativas().size(); j++) {
+				if(pesquisa.getQuestoes().get(i).getAlternativas().get(j).isCorreto() == true && values.get(j) == true) {
+					acertos = acertos + 1;
+				}else if (pesquisa.getQuestoes().get(i).getAlternativas().get(j).isCorreto() == false && values.get(j) == false){
+					acertos = acertos + 1;
+				} else {
+					erros = erros + 1;
+				}
+			}
+		}
+		
+		calculo.add(acertos);
+		calculo.add(erros);
+		
+		return calculo;
+	}
+	
 }
