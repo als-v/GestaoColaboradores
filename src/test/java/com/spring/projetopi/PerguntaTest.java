@@ -21,11 +21,11 @@ public class PerguntaTest {
 		Pergunta pergunta_1 = new Pergunta();
 		
 		pergunta_1.setPergunta("Pergunta Teste");
-		
+				
+		perguntaController.save(pergunta_1);
 		
 		assertNotNull(pergunta_1.getPergunta_id());
 		assertEquals(pergunta_1.getPergunta(), "Pergunta Teste");
 
-		//perguntaController.save(pergunta_1);
 	}
 }

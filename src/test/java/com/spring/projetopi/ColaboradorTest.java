@@ -2,6 +2,8 @@ package com.spring.projetopi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -91,5 +93,84 @@ public class ColaboradorTest {
 		Colaborador result = colaboradorController.findById(colaboradorEdit.getColaborador_id());
 		
 		assertEquals(result.getNome(), "Teste editado");
+	}
+	
+	@Test
+	public void listColaborador() {
+		Empresa empresa = new Empresa();
+		
+		empresa.setNome("Teste Empresa Colaborador 3");
+		empresa.setEmail("empresacolaboradorteste3@empresacolaboradorteste3.com");
+		empresa.setCnpj("00.000.000/00000-00");
+		empresa.setSenha("senha");
+		
+		if(colaboradorController.verifyEmailEmpresa("empresacolaboradorteste3@empresacolaboradorteste3.com") == true) {
+			empresaController.save(empresa);			
+		} else {
+			empresa = empresaController.findByEmail("empresacolaboradorteste3@empresacolaboradorteste3.com");
+		}
+		
+		Colaborador colaborador = new Colaborador();
+		
+		colaborador.setNome("Teste Colaborador 3");
+		colaborador.setEmail("testecolaborador3@testecolaborador3.com");
+		colaborador.setSenha("teste");
+		colaborador.setEmpresa(empresa);
+		
+		if(colaboradorController.verifyEmailEmpresa("testecolaborador3@testecolaborador3.com")) {
+			colaboradorController.save(colaborador);			
+		}else {
+			colaborador = colaboradorController.findByEmail("testecolaborador3@testecolaborador3.com");
+		}
+		
+		Colaborador colaborador1 = new Colaborador();
+		
+		colaborador1.setNome("Teste Colaborador 4");
+		colaborador1.setEmail("testecolaborador4@testecolaborador4.com");
+		colaborador1.setSenha("teste");
+		colaborador1.setEmpresa(empresa);
+		
+		if(colaboradorController.verifyEmailEmpresa("testecolaborador4@testecolaborador4.com")) {
+			colaboradorController.save(colaborador1);			
+		}else {
+			colaborador1 = colaboradorController.findByEmail("testecolaborador4@testecolaborador4.com");
+		}
+		
+		List<Colaborador> colaboradoresDaEmpresa = empresaController.findColaborador(empresa.getEmpresa_id());
+		
+		assertEquals(colaboradoresDaEmpresa.size(), 2);
+		assertEquals(colaboradoresDaEmpresa.get(0).getEmail(), colaborador.getEmail());
+		assertEquals(colaboradoresDaEmpresa.get(1).getEmail(), colaborador1.getEmail());
+	}
+	
+	@Test
+	public void loginColaborador() {
+		Empresa empresa = new Empresa();
+		
+		empresa.setNome("Teste Empresa Colaborador 4");
+		empresa.setEmail("empresacolaboradorteste4@empresacolaboradorteste4.com");
+		empresa.setCnpj("00.000.000/00000-00");
+		empresa.setSenha("senha");
+		
+		if(colaboradorController.verifyEmailEmpresa("empresacolaboradorteste4@empresacolaboradorteste4.com") == true) {
+			empresaController.save(empresa);			
+		} else {
+			empresa = empresaController.findByEmail("empresacolaboradorteste4@empresacolaboradorteste4.com");
+		}
+		
+		Colaborador colaborador = new Colaborador();
+		
+		colaborador.setNome("Teste Colaborador 5");
+		colaborador.setEmail("testecolaborador5@testecolaborador5.com");
+		colaborador.setSenha("teste");
+		colaborador.setEmpresa(empresa);
+		
+		if(colaboradorController.verifyEmailEmpresa("testecolaborador5@testecolaborador5.com")) {
+			colaboradorController.save(colaborador);			
+		}else {
+			colaborador = colaboradorController.findByEmail("testecolaborador5@testecolaborador5.com");
+		}
+		
+		assertEquals(colaborador.getColaborador_id(), colaboradorController.loginColaborador(colaborador.getEmail(), colaborador.getSenha()));
 	}
 }

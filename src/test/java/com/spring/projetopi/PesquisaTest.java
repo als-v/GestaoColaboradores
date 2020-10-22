@@ -10,8 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.spring.projetopi.controller.AlternativaController;
 import com.spring.projetopi.controller.EmpresaController;
+import com.spring.projetopi.controller.PerguntaController;
 import com.spring.projetopi.controller.PesquisaController;
+import com.spring.projetopi.controller.QuestaoController;
 import com.spring.projetopi.model.Alternativa;
 import com.spring.projetopi.model.Empresa;
 import com.spring.projetopi.model.Pergunta;
@@ -27,17 +30,27 @@ public class PesquisaTest {
 	@Autowired
 	EmpresaController empresaController;
 	
+	@Autowired
+	PerguntaController perguntaController;
+	
+	@Autowired
+	AlternativaController alternativaController;
+	
+	@Autowired
+	QuestaoController questaoController;
+	
 	@Test
 	public void createTest() {
-		/* Criação da empresa */
 		Empresa empresa = new Empresa();
 		
-		empresa.setNome("Empresa Teste");
-		empresa.setEmail("email@email.com");
-		empresa.setCnpj("12.123.123/00001-93");
+		empresa.setNome("Empresa Teste 1");
+		empresa.setEmail("empresateste1@empresateste1.com");
+		empresa.setCnpj("00.000.000/00000-00");
 		empresa.setSenha("senha");
-				
-		//empresaController.save(empresa);
+		
+		if(empresaController.verifyEmailColab("empresateste1@empresateste1.com") == true) {			
+			empresaController.save(empresa);
+		}
 		
 		/*====== Criação das questões ====== */
 		
@@ -46,13 +59,13 @@ public class PesquisaTest {
 		
 		pergunta_1.setPergunta("Pergunta Teste 1");
 		
-		//perguntaService.save(pergunta_1);
+		perguntaController.save(pergunta_1);
 		
 		Pergunta pergunta_2 = new Pergunta();
 		
 		pergunta_2.setPergunta("Pergunta Teste 2");
 		
-		//perguntaService.save(pergunta_2);
+		perguntaController.save(pergunta_2);
 		
 		/* Criação das alternativas */
 		Alternativa alternativa_1 = new Alternativa();
@@ -61,7 +74,7 @@ public class PesquisaTest {
 		alternativa_1.setCorreto(false);
 		alternativa_1.setDescricao("Teste alternativa 1");
 		
-		//alternativaService.save(alternativa_1);
+		alternativaController.save(alternativa_1);
 
 		Alternativa alternativa_2 = new Alternativa();
 		
@@ -69,7 +82,7 @@ public class PesquisaTest {
 		alternativa_2.setCorreto(true);
 		alternativa_2.setDescricao("Teste alternativa 2");
 		
-		//alternativaService.save(alternativa_2);
+		alternativaController.save(alternativa_2);
 		
 		Alternativa alternativa_3 = new Alternativa();
 		
@@ -77,7 +90,7 @@ public class PesquisaTest {
 		alternativa_3.setCorreto(false);
 		alternativa_3.setDescricao("Teste alternativa 3");
 		
-		//alternativaService.save(alternativa_3);
+		alternativaController.save(alternativa_3);
 
 		Alternativa alternativa_4 = new Alternativa();
 		
@@ -85,7 +98,7 @@ public class PesquisaTest {
 		alternativa_4.setCorreto(false);
 		alternativa_4.setDescricao("Teste alternativa 4");
 		
-		//alternativaService.save(alternativa_4);	
+		alternativaController.save(alternativa_4);	
 		
 		Alternativa alternativa_5 = new Alternativa();
 		
@@ -93,7 +106,7 @@ public class PesquisaTest {
 		alternativa_5.setCorreto(false);
 		alternativa_5.setDescricao("Teste alternativa 5");
 		
-		//alternativaService.save(alternativa_5);
+		alternativaController.save(alternativa_5);
 		
 		List <Alternativa> alternativas_1 = new ArrayList<Alternativa>();
 		
@@ -109,7 +122,7 @@ public class PesquisaTest {
 		alternativa_6.setCorreto(false);
 		alternativa_6.setDescricao("Teste alternativa 6");
 		
-		//alternativaService.save(alternativa_6);
+		alternativaController.save(alternativa_6);
 
 		Alternativa alternativa_7 = new Alternativa();
 		
@@ -117,7 +130,7 @@ public class PesquisaTest {
 		alternativa_7.setCorreto(false);
 		alternativa_7.setDescricao("Teste alternativa 7");
 		
-		//alternativaService.save(alternativa_7);
+		alternativaController.save(alternativa_7);
 		
 		Alternativa alternativa_8 = new Alternativa();
 		
@@ -125,7 +138,7 @@ public class PesquisaTest {
 		alternativa_8.setCorreto(false);
 		alternativa_8.setDescricao("Teste alternativa 8");
 		
-		//alternativaService.save(alternativa_8);
+		alternativaController.save(alternativa_8);
 
 		Alternativa alternativa_9 = new Alternativa();
 		
@@ -133,7 +146,7 @@ public class PesquisaTest {
 		alternativa_9.setCorreto(true);
 		alternativa_9.setDescricao("Teste alternativa 9");
 		
-		//alternativaService.save(alternativa_9);	
+		alternativaController.save(alternativa_9);	
 		
 		Alternativa alternativa_10 = new Alternativa();
 		
@@ -141,7 +154,7 @@ public class PesquisaTest {
 		alternativa_10.setCorreto(false);
 		alternativa_10.setDescricao("Teste alternativa 10");
 		
-		//alternativaService.save(alternativa_10);
+		alternativaController.save(alternativa_10);
 		
 		List <Alternativa> alternativas_2 = new ArrayList<Alternativa>();
 		
@@ -157,14 +170,14 @@ public class PesquisaTest {
 		questao_1.setPergunta(pergunta_1);
 		questao_1.setAlternativas(alternativas_1);
 		
-		//questaoService.save(questao_1);
+		questaoController.save(questao_1);
 		
 		Questao questao_2 = new Questao();
 		
 		questao_2.setPergunta(pergunta_2);
 		questao_2.setAlternativas(alternativas_2);
 		
-		//questaoService.save(questao_2);
+		questaoController.save(questao_2);
 		
 		List <Questao> questoes = new ArrayList<Questao>();
 		
@@ -180,6 +193,8 @@ public class PesquisaTest {
 		pesquisa_1.setEmpresa(empresa);
 		pesquisa_1.setNome("Pesquisa Teste");
 		pesquisa_1.setQuestoes(questoes);
+
+		pesquisaController.save(pesquisa_1);
 		
 		assertNotNull(pesquisa_1.getPesquisa_id());
 		assertEquals(pesquisa_1.getNome(), "Pesquisa Teste");
@@ -194,6 +209,5 @@ public class PesquisaTest {
 			}
 		}
 		
-		//pesquisaController.save(pesquisa_1);
 	}
 }
