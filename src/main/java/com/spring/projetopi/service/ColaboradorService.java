@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -69,12 +70,7 @@ public class ColaboradorService {
 		return "redirect:/menuEmpresa/" + id;
 	}
 	
-	@RequestMapping(value = "/editarColaborador/{id}", method = RequestMethod.GET)
-	public String editarColaborador(@PathVariable("id") Long id) {
-		return "editarColaborador";
-	}
 	
-	/*
 	@RequestMapping(value = "/editarColaborador/{id}", method = RequestMethod.GET)
 	public ModelAndView editarColaborador(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("editarColaborador");
@@ -83,23 +79,20 @@ public class ColaboradorService {
 		return mv;
 	}
 	
-	
 	@RequestMapping(value = "/editarColaborador/{id}", method = RequestMethod.POST)
-	public String editarNomeEmpresa(@Valid Empresa empresa, BindingResult result, RedirectAttributes attributes, @PathVariable("id") Long id) {
-		if (result.hasErrors()) {
-			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
-			return "redirect:/editarEmpresa/" + id;
+	public String editarNomeColaborador(@RequestParam("nome") String nome, @RequestParam("senha") String senha, RedirectAttributes attributes, @PathVariable("id") Long id) {
+		Colaborador editColaborador = colaboradorController.findById(id);
+		
+		if(!editColaborador.getNome().equals(nome)) {
+			editColaborador.setNome(nome);
 		}
 		
-		Empresa empresa2 = empresaController.findById(id);
-		
-		if (empresa2.getNome() != empresa.getNome()) {
-			empresa2.setNome(empresa.getNome());
+		if(!editColaborador.getSenha().equals(senha)) {
+			editColaborador.setSenha(senha);
 		}
 		
-		empresaController.save(empresa2);
+		colaboradorController.save(editColaborador);
 		
-		return "redirect:/menuEmpresa/" + id;
+		return "redirect:/menuColaborador/" + id;
 	}
-	*/
 }

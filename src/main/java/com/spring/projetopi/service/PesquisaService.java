@@ -77,7 +77,6 @@ public class PesquisaService {
 		attributes.addFlashAttribute("mensagem", "Você já fez todos as pesquisas!");
 		
 		return "redirect:/realizarPesquisa/" + id;
-		
 	}
 	
 	@RequestMapping(value = "/realizarPesquisa/pesquisa/{id1}/{id2}", method = RequestMethod.GET)
@@ -109,5 +108,17 @@ public class PesquisaService {
 		realizacaoPesquisaController.save(realizacaoPesquisa);
 		
 		return "redirect:/menuColaborador/" + id1;
+	}
+	
+	@RequestMapping(value = "/menuColaborador/{id}", method = RequestMethod.POST)
+	public String colabMenuPesquisa(@PathVariable("id") Long id, RedirectAttributes attributes) {
+		Pesquisa pesquisa = realizacaoPesquisaController.getPesquisa(colaboradorController.findById(id));
+		
+		if(pesquisa != null) {
+			return "redirect:/realizarPesquisa/pesquisa/" + id + "/" + pesquisa.getPesquisa_id();			
+		}
+		attributes.addFlashAttribute("mensagem", "Você já fez todos as pesquisas!");
+		
+		return "redirect:/menuColaborador/" + id;
 	}
 }

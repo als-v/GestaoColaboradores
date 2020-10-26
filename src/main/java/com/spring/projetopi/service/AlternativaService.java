@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,6 +20,7 @@ import com.spring.projetopi.controller.PerguntaController;
 import com.spring.projetopi.controller.PesquisaController;
 import com.spring.projetopi.controller.QuestaoController;
 import com.spring.projetopi.model.Alternativa;
+import com.spring.projetopi.model.Pergunta;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.Questao;
 
@@ -41,7 +43,7 @@ public class AlternativaService {
 	@Autowired
 	EmpresaController empresaController;
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa() {
 		ModelAndView mv = new ModelAndView("cadastroAlternativa");
 		Alternativa a = new Alternativa();
@@ -50,7 +52,7 @@ public class AlternativaService {
 		return mv;
 	}
 
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa2() {
 		ModelAndView mv = new ModelAndView("cadastroAlternativa");
 		Alternativa a = new Alternativa();
@@ -59,7 +61,7 @@ public class AlternativaService {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa3() {
 		ModelAndView mv = new ModelAndView("cadastroAlternativa");
 		Alternativa a = new Alternativa();
@@ -68,7 +70,7 @@ public class AlternativaService {
 		return mv;
 	}	
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa4() {
 		ModelAndView mv = new ModelAndView("cadastroAlternativa");
 		Alternativa a = new Alternativa();
@@ -77,7 +79,7 @@ public class AlternativaService {
 		return mv;
 	}		
 
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}/{id7}", method = RequestMethod.GET)
 	public ModelAndView getAlternativa5() {
 		ModelAndView mv = new ModelAndView("cadastroAlternativa");
 		Alternativa a = new Alternativa();
@@ -86,8 +88,8 @@ public class AlternativaService {
 		return mv;
 	}		
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}", method = RequestMethod.POST)
-	public String saveAlternativa(Alternativa a, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2) {
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}", method = RequestMethod.POST)
+	public String saveAlternativa(Alternativa a, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3) {
 
 		if(a.getDescricao() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
@@ -102,11 +104,11 @@ public class AlternativaService {
 		System.out.println(a.isCorreto());
 		System.out.println(a.getAlternativa_id());
 		
-		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + a.getAlternativa_id();
+		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + a.getAlternativa_id();
 	}	
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}", method = RequestMethod.POST)
-	public String saveAlternativa2(Alternativa b, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3) {
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}", method = RequestMethod.POST)
+	public String saveAlternativa2(Alternativa b, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4) {
 
 		if(b.getDescricao() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
@@ -116,11 +118,11 @@ public class AlternativaService {
 		
 		alternativaController.save(b);
 		
-		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + b.getAlternativa_id();
+		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + b.getAlternativa_id();
 	}
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}", method = RequestMethod.POST)
-	public String saveAlternativa3(Alternativa c, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4) {
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}", method = RequestMethod.POST)
+	public String saveAlternativa3(Alternativa c, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4, @PathVariable("id5") Long id5) {
 
 		if(c.getDescricao() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
@@ -130,11 +132,11 @@ public class AlternativaService {
 		
 		alternativaController.save(c);
 		
-		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + c.getAlternativa_id();
+		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + id5 + "/" + c.getAlternativa_id();
 	}	
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}", method = RequestMethod.POST)
-	public String saveAlternativa4(Alternativa d, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4, @PathVariable("id5") Long id5) {
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}", method = RequestMethod.POST)
+	public String saveAlternativa4(Alternativa d, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4, @PathVariable("id5") Long id5, @PathVariable("id6") Long id6) {
 
 		if(d.getDescricao() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
@@ -144,11 +146,11 @@ public class AlternativaService {
 		
 		alternativaController.save(d);
 		
-		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + id5 + "/" + d.getAlternativa_id();
+		return "redirect:/cadastroAlternativa/" + id + "/" + id2 + "/" + id3 + "/" + id4 + "/" + id5 + "/" + id6+ "/" + d.getAlternativa_id();
 	}
 	
-	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}", method = RequestMethod.POST)
-	public String saveAlternativa5(Alternativa e, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4, @PathVariable("id5") Long id5, @PathVariable("id6") Long id6) {
+	@RequestMapping(value = "/cadastroAlternativa/{id}/{id2}/{id3}/{id4}/{id5}/{id6}/{id7}", method = RequestMethod.POST)
+	public String saveAlternativa7(Alternativa e, RedirectAttributes attributes, @PathVariable("id") Long id, @PathVariable("id2") Long id2, @PathVariable("id3") Long id3, @PathVariable("id4") Long id4, @PathVariable("id5") Long id5, @PathVariable("id6") Long id6, @PathVariable("id7") Long id7) {
 
 		if(e.getDescricao() == "") {
 			attributes.addFlashAttribute("mensagem", "Por favor, confira se os dados estão corretos e tente novamente!");
@@ -160,15 +162,17 @@ public class AlternativaService {
 		
 		Questao q = new Questao();
 		
-		q.setPergunta(perguntaController.findById(id2));
+		q.setPergunta(perguntaController.findById(id3));
 		
 		List <Alternativa> alternativas = new ArrayList<Alternativa>();
 		
-		Alternativa a = alternativaController.findById(id3);
-		Alternativa b = alternativaController.findById(id4);
-		Alternativa c = alternativaController.findById(id5);
-		Alternativa d = alternativaController.findById(id6);
+		Pergunta nome = perguntaController.findById(id2);
 		
+		Alternativa a = alternativaController.findById(id4);
+		Alternativa b = alternativaController.findById(id5);
+		Alternativa c = alternativaController.findById(id6);
+		Alternativa d = alternativaController.findById(id7);
+
 		alternativas.add(a);
 		alternativas.add(b);
 		alternativas.add(c);
@@ -188,10 +192,11 @@ public class AlternativaService {
 		
 		p1.setQuestoes(questoes);
 		
-		p1.setNome("Pesquisa sem nome");
+		p1.setNome(nome.getPergunta());
 		
 		pesquisaController.save(p1);
 		
 		return "redirect:/menuEmpresa/" + id;
-	}	
+	}
+	
 }
