@@ -47,8 +47,14 @@
    - Finalizamos os ultimos ajustes que faltavam na construção do projeto (inverter controller e service).
    - Discutimos sobre o andamento do projeto.
 
-* 14/07/2020
+* 14/10/2020
    - Discutimos sobre o andamento das issues.
    - Decidimos fazer uma outra abordagem para a realização dos testes e para a visualização dos mesmos, visto que apareceram problemas que não são tão triviais para arrumar.
    - Tentamos arrumar o Travis para o repositório.
    - Estamos fazendo mais histórias de usuarios.
+
+* 21/10/2020
+   - Conseguimos arrumar o travis (com muito suor).
+   - Ainda estamos com problema na realização dos testes, não estamos conseguindo pegar as respostas dos colaboradores.
+   - continuamos com a criação de novas historias de usuario, tendo em vista uma outra perspecitiva (a partir de contatos que realmente irão usar o sistema).
+   - Decidimos focar na realização do teste para finalizarmos a sprint.
