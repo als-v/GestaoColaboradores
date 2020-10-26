@@ -45,13 +45,20 @@
   				</ol>
 			</nav>
 			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
-				<div class="card-body" onClick="pesquisa()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;">
-						<span>Fazer Pesquisa</span>
-					</h4>
+			<th:block th:include="validate/empresaValidate"></th:block>
+			<form method="post">
+				<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+					<div class="card-body" onClick="pesquisa()">
+						<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;">
+							<span>Pesquisas</span>
+						</h4>
+					</div>
 				</div>
-			</div>						
+				<div class="row mx-md-n5">
+					<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Fazer Pesquisa</button>
+					<a href="/" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Sair</a>
+				</div>
+			</form>						
 			
 		</div>
 	

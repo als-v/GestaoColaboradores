@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.spring.projetopi.PesquisaTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.34 s <<< FAILURE! - in com.spring.projetopi.PesquisaTest
+createTest  Time elapsed: 0.328 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.spring.projetopi.model.Pesquisa.empresa -> com.spring.projetopi.model.Empresa; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.spring.projetopi.model.Pesquisa.empresa -> com.spring.projetopi.model.Empresa
+	at com.spring.projetopi.PesquisaTest.createTest(PesquisaTest.java:197)
+Caused by: java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.spring.projetopi.model.Pesquisa.empresa -> com.spring.projetopi.model.Empresa
+	at com.spring.projetopi.PesquisaTest.createTest(PesquisaTest.java:197)
+Caused by: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : com.spring.projetopi.model.Pesquisa.empresa -> com.spring.projetopi.model.Empresa
+	at com.spring.projetopi.PesquisaTest.createTest(PesquisaTest.java:197)
+

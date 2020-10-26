@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.spring.projetopi.EmpresaTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 s - in com.spring.projetopi.EmpresaTest
