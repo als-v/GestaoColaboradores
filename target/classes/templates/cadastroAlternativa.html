@@ -71,21 +71,11 @@
 	<script>
 	var x = document.URL;
 	
-	    function calculate(){
-	    	x = x.substr(42,42)
-	    	if(x.lenght == 3){
-	    		return 1
-	    	}
-	    	
-	    }
-	    
 		function menu(){
-			
-			// pega a parte com os 2 ids
 			x = x.substr(42,42)
-			// tiro um id e deixo so o da empresa
-			x = x.slice(0, -2)
-			window.location.href = "/menuEmpresa/" + x;
+			x = x.split("/");
+		
+			window.location.href = "/menuEmpresa/" + x[0];
 		}
 	</script>
 </body>
