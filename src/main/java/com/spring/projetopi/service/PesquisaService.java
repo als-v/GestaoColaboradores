@@ -13,15 +13,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.projetopi.controller.ColaboradorController;
+import com.spring.projetopi.controller.EmpresaController;
 import com.spring.projetopi.controller.PesquisaController;
 import com.spring.projetopi.controller.RealizacaoPesquisaController;
 import com.spring.projetopi.model.Alternativa;
 import com.spring.projetopi.model.Colaborador;
+import com.spring.projetopi.model.Empresa;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.RealizacaoPesquisa;
 
 @Controller
 public class PesquisaService {
+	
+	@Autowired
+	EmpresaController empresaController;
 
 	@Autowired
 	PesquisaController pesquisaController;
@@ -120,5 +125,25 @@ public class PesquisaService {
 		attributes.addFlashAttribute("mensagem", "Você já fez todos as pesquisas!");
 		
 		return "redirect:/menuColaborador/" + id;
+	}
+	
+	@RequestMapping(value = "/visualizarResultadosEmpresa/{id}", method = RequestMethod.GET)
+	public ModelAndView resultPesquisa(@PathVariable("id") Long id) {
+		System.out.println(id);
+		ModelAndView mv = new ModelAndView("visualizarResultadoEmpresa");
+		
+		Empresa empresa = empresaController.findById(id);
+		List<RealizacaoPesquisa> pesquisas = realizacaoPesquisaController.findAll();
+		List<RealizacaoPesquisa> empresa_pesquisa = new ArrayList<RealizacaoPesquisa>();
+		
+		for(int i = 0; i < pesquisas.size(); i++) {
+			if(pesquisas.get(i).getColaborador().getEmpresa() == empresa) {
+				empresa_pesquisa.add(pesquisas.get(i));
+			}
+		}
+		
+		mv.addObject("pesquisas", empresa_pesquisa);
+		
+		return mv;
 	}
 }
