@@ -1,3 +1,12 @@
+<h1 align="center"> Gestão Colaboradores 
+<div align="center">
+<a href="https://travis-ci.com/github/als-v/GestaoColaboradores/builds">
+<img  src="https://travis-ci.com/als-v/GestaoColaboradores.svg?branch=master">
+</a>
+</div>
+</h1>
+<br>
+
 
 <!-- TABLE OF CONTENTS -->
 ## Conteúdos
