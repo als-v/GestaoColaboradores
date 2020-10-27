@@ -46,6 +46,20 @@ public class AlternativaTests {
 		assertTrue(alternativa_2.isCorreto());
 		assertEquals(alternativa_2.getAlternativa(), 2);
 		assertEquals(alternativa_2.getDescricao(), "Teste alternativa 2");
+	}
+	
+	@Test
+	public void findAlternativaById() {
+		Alternativa alternativa_1 = new Alternativa();
 		
+		alternativa_1.setAlternativa(1);
+		alternativa_1.setCorreto(false);
+		alternativa_1.setDescricao("Teste alternativa 1");
+		
+		alternativaController.save(alternativa_1);
+
+		Alternativa alternativa = alternativaController.findById(alternativa_1.getAlternativa_id());
+		
+		assertEquals(alternativa.getAlternativa_id(), alternativa_1.getAlternativa_id());
 	}
 }
