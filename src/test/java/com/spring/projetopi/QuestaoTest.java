@@ -133,4 +133,210 @@ public class QuestaoTest {
 			}
 		}
 	}
+	
+	@Test
+	public void listQuestoes() {
+		/* Criação das perguntas */
+		Pergunta pergunta1 = new Pergunta();
+		
+		pergunta1.setPergunta("Pergunta Teste");
+		
+		perguntaController.save(pergunta1);
+		
+		/* Criação das alternativas */
+		Alternativa alternativa1 = new Alternativa();
+		
+		alternativa1.setAlternativa(1);
+		alternativa1.setCorreto(false);
+		alternativa1.setDescricao("Teste alternativa 1");
+		
+		alternativaController.save(alternativa1);
+
+		Alternativa alternativa2 = new Alternativa();
+		
+		alternativa2.setAlternativa(2);
+		alternativa2.setCorreto(true);
+		alternativa2.setDescricao("Teste alternativa 2");
+		
+		alternativaController.save(alternativa2);
+		
+		Alternativa alternativa3 = new Alternativa();
+		
+		alternativa3.setAlternativa(3);
+		alternativa3.setCorreto(false);
+		alternativa3.setDescricao("Teste alternativa 3");
+		
+		alternativaController.save(alternativa3);
+
+		Alternativa alternativa4 = new Alternativa();
+		
+		alternativa4.setAlternativa(4);
+		alternativa4.setCorreto(false);
+		alternativa4.setDescricao("Teste alternativa 4");
+		
+		alternativaController.save(alternativa4);	
+		
+		Alternativa alternativa5 = new Alternativa();
+		
+		alternativa5.setAlternativa(5);
+		alternativa5.setCorreto(false);
+		alternativa5.setDescricao("Teste alternativa 5");
+		
+		alternativaController.save(alternativa5);
+		
+		List <Alternativa> alternativas1 = new ArrayList<Alternativa>();
+		
+		alternativas1.add(alternativa1);
+		alternativas1.add(alternativa2);
+		alternativas1.add(alternativa3);
+		alternativas1.add(alternativa4);
+		alternativas1.add(alternativa5);
+		
+		/* Criação da questão */
+		Questao questao1 = new Questao();
+		
+		questao1.setPergunta(pergunta1);
+		questao1.setAlternativas(alternativas1);
+
+		questaoController.save(questao1);
+		
+		/* Criação das perguntas */
+		Pergunta pergunta_1 = new Pergunta();
+		
+		pergunta_1.setPergunta("Pergunta Teste");
+		
+		perguntaController.save(pergunta_1);
+		
+		/* Criação das alternativas */
+		Alternativa alternativa_1 = new Alternativa();
+		
+		alternativa_1.setAlternativa(1);
+		alternativa_1.setCorreto(false);
+		alternativa_1.setDescricao("Teste alternativa 1");
+		
+		alternativaController.save(alternativa_1);
+
+		Alternativa alternativa_2 = new Alternativa();
+		
+		alternativa_2.setAlternativa(2);
+		alternativa_2.setCorreto(true);
+		alternativa_2.setDescricao("Teste alternativa 2");
+		
+		alternativaController.save(alternativa_2);
+		
+		Alternativa alternativa_3 = new Alternativa();
+		
+		alternativa_3.setAlternativa(3);
+		alternativa_3.setCorreto(false);
+		alternativa_3.setDescricao("Teste alternativa 3");
+		
+		alternativaController.save(alternativa_3);
+
+		Alternativa alternativa_4 = new Alternativa();
+		
+		alternativa_4.setAlternativa(4);
+		alternativa_4.setCorreto(false);
+		alternativa_4.setDescricao("Teste alternativa 4");
+		
+		alternativaController.save(alternativa_4);	
+		
+		Alternativa alternativa_5 = new Alternativa();
+		
+		alternativa_5.setAlternativa(5);
+		alternativa_5.setCorreto(false);
+		alternativa_5.setDescricao("Teste alternativa 5");
+		
+		alternativaController.save(alternativa_5);
+		
+		List <Alternativa> alternativas = new ArrayList<Alternativa>();
+		
+		alternativas.add(alternativa_1);
+		alternativas.add(alternativa_2);
+		alternativas.add(alternativa_3);
+		alternativas.add(alternativa_4);
+		alternativas.add(alternativa_5);
+		
+		/* Criação da questão */
+		Questao questao_1 = new Questao();
+		
+		questao_1.setPergunta(pergunta_1);
+		questao_1.setAlternativas(alternativas);
+
+		questaoController.save(questao_1);
+		
+		List<Questao> questoes = questaoController.findAll();
+		
+		assertNotNull(questoes);
+	}
+	
+	@Test
+	public void findQuestaoById() {
+		/* Criação das perguntas */
+		Pergunta pergunta_1 = new Pergunta();
+		
+		pergunta_1.setPergunta("Pergunta Teste");
+		
+		perguntaController.save(pergunta_1);
+		
+		/* Criação das alternativas */
+		Alternativa alternativa_1 = new Alternativa();
+		
+		alternativa_1.setAlternativa(1);
+		alternativa_1.setCorreto(false);
+		alternativa_1.setDescricao("Teste alternativa 1");
+		
+		alternativaController.save(alternativa_1);
+
+		Alternativa alternativa_2 = new Alternativa();
+		
+		alternativa_2.setAlternativa(2);
+		alternativa_2.setCorreto(true);
+		alternativa_2.setDescricao("Teste alternativa 2");
+		
+		alternativaController.save(alternativa_2);
+		
+		Alternativa alternativa_3 = new Alternativa();
+		
+		alternativa_3.setAlternativa(3);
+		alternativa_3.setCorreto(false);
+		alternativa_3.setDescricao("Teste alternativa 3");
+		
+		alternativaController.save(alternativa_3);
+
+		Alternativa alternativa_4 = new Alternativa();
+		
+		alternativa_4.setAlternativa(4);
+		alternativa_4.setCorreto(false);
+		alternativa_4.setDescricao("Teste alternativa 4");
+		
+		alternativaController.save(alternativa_4);	
+		
+		Alternativa alternativa_5 = new Alternativa();
+		
+		alternativa_5.setAlternativa(5);
+		alternativa_5.setCorreto(false);
+		alternativa_5.setDescricao("Teste alternativa 5");
+		
+		alternativaController.save(alternativa_5);
+		
+		List <Alternativa> alternativas = new ArrayList<Alternativa>();
+		
+		alternativas.add(alternativa_1);
+		alternativas.add(alternativa_2);
+		alternativas.add(alternativa_3);
+		alternativas.add(alternativa_4);
+		alternativas.add(alternativa_5);
+		
+		/* Criação da questão */
+		Questao questao_1 = new Questao();
+		
+		questao_1.setPergunta(pergunta_1);
+		questao_1.setAlternativas(alternativas);
+
+		questaoController.save(questao_1);
+		
+		Questao questao = questaoController.findById(questao_1.getQuestao_id());
+		
+		assertEquals(questao.getQuestao_id(), questao_1.getQuestao_id());
+	}
 }
