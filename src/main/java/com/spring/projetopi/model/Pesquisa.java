@@ -25,4 +25,7 @@ public class Pesquisa {
 	
 	@Column(name="nome", columnDefinition = "varchar(255) default 'Pesquisa sem nome'")
 	@Getter @Setter private String nome;
+	
+	@Column(name="acertoGeral", columnDefinition = "float default 0")
+	@Getter @Setter private float acertoGeral;
 }

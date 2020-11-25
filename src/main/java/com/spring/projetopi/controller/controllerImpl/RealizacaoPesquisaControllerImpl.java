@@ -138,4 +138,42 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 		return colaboradorPesquisas;
 	}
 	
+	@Override
+	public List<RealizacaoPesquisa> getPesquisas(Pesquisa p){
+		List<RealizacaoPesquisa> realizacoes = realizacaoPesquisaRepository.findAll();
+		List<RealizacaoPesquisa> todasPesquisas = new ArrayList<RealizacaoPesquisa>();
+		
+		for(int i = 0; i < realizacoes.size(); i++) {
+			if(p.getPesquisa_id() == realizacoes.get(i).getPesquisa().getPesquisa_id()) {
+				todasPesquisas.add(realizacoes.get(i));
+			}
+		}
+		
+		return todasPesquisas;
+	}
+
+	@Override
+	public List<Pesquisa> calcResultados() {
+		List<Pesquisa> todasPesquisas = pesquisaRepository.findAll();
+		
+		for(int i = 0; i < todasPesquisas.size(); i++) {
+			List<RealizacaoPesquisa> realizacoes = this.getPesquisas(todasPesquisas.get(i));
+			
+			if(realizacoes.size() > 0) {
+				float sum = 0;
+				
+				for(int j = 0; j < realizacoes.size(); j++) {
+					sum += realizacoes.get(j).getPorcentagemAcerto();
+				}
+				
+				todasPesquisas.get(i).setAcertoGeral(sum/realizacoes.size());
+				
+				pesquisaRepository.save(todasPesquisas.get(i));
+			}
+			
+		}
+		
+		return todasPesquisas;
+	}
+	
 }
