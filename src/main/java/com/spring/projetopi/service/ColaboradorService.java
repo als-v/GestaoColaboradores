@@ -95,4 +95,9 @@ public class ColaboradorService {
 		
 		return "redirect:/menuColaborador/" + id;
 	}
+	
+	@RequestMapping(value = "/resultados/{id}", method = RequestMethod.GET)
+	public String analiseResultado() {
+	    return "analiseResultadosColaborador";
+	}
 }

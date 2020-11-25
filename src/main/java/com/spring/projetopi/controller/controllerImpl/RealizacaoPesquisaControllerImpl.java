@@ -112,5 +112,16 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 		
 		return calculo;
 	}
+
+	@Override
+	public float calcPorcentagemAcertos(int acertos, int questoes) {
+		return ((acertos*100)/questoes);
+	}
+
+	@Override
+	public float calcPorcentagemErro(float porcentagemAcerto) {
+		float result = 100;
+		return result - porcentagemAcerto;
+	}
 	
 }
