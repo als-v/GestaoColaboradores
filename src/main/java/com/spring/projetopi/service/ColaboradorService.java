@@ -16,8 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.projetopi.controller.ColaboradorController;
 import com.spring.projetopi.controller.EmpresaController;
+import com.spring.projetopi.controller.RealizacaoPesquisaController;
 import com.spring.projetopi.model.Colaborador;
 import com.spring.projetopi.model.Empresa;
+import com.spring.projetopi.model.RealizacaoPesquisa;
 
 @Controller
 public class ColaboradorService {
@@ -27,6 +29,9 @@ public class ColaboradorService {
 	
 	@Autowired
 	EmpresaController empresaController;
+	
+	@Autowired
+	RealizacaoPesquisaController realizacaoPesquisaController;
 
 	@RequestMapping(value = "/colaboradores", method = RequestMethod.GET)
 	public ModelAndView getEmpresa() {
@@ -97,7 +102,11 @@ public class ColaboradorService {
 	}
 	
 	@RequestMapping(value = "/resultados/{id}", method = RequestMethod.GET)
-	public String analiseResultado() {
-	    return "analiseResultadosColaborador";
+	public ModelAndView analiseResultado(@PathVariable("id") Long id) {
+		Colaborador colab = colaboradorController.findById(id);
+		List<RealizacaoPesquisa> pesquisas = realizacaoPesquisaController.findByColaborador(colab);
+		ModelAndView mv = new ModelAndView("analiseResultadosColaborador");
+		mv.addObject("pesquisas", pesquisas);
+	    return mv;
 	}
 }

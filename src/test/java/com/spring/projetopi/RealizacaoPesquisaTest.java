@@ -91,7 +91,7 @@ public class RealizacaoPesquisaTest {
 		Alternativa alternativa_1 = new Alternativa();
 		
 		alternativa_1.setAlternativa(1);
-		alternativa_1.setCorreto(false);
+		alternativa_1.setCorreto(true);
 		alternativa_1.setDescricao("Teste alternativa 1");
 		
 		alternativaController.save(alternativa_1);
@@ -99,7 +99,7 @@ public class RealizacaoPesquisaTest {
 		Alternativa alternativa_2 = new Alternativa();
 		
 		alternativa_2.setAlternativa(2);
-		alternativa_2.setCorreto(true);
+		alternativa_2.setCorreto(false);
 		alternativa_2.setDescricao("Teste alternativa 2");
 		
 		alternativaController.save(alternativa_2);
@@ -170,9 +170,9 @@ public class RealizacaoPesquisaTest {
 		
 		a.add(false);
 		a.add(true);
-		a.add(false);
-		a.add(false);
-		a.add(false);
+		a.add(true);
+		a.add(true);
+		a.add(true);
 		
 		List<Integer> acertos = realizacaoPesquisaController.calcAcertos(pesquisa_1, a);
 		
@@ -186,10 +186,10 @@ public class RealizacaoPesquisaTest {
 
 		assertEquals(realizacaoPesquisa.getColaborador().getNome(), colaborador.getNome());
 		assertEquals(realizacaoPesquisa.getPesquisa().getNome(), pesquisa_1.getNome());
-		assertEquals(realizacaoPesquisa.getAcertos(), 5);
-		assertEquals(realizacaoPesquisa.getErros(), 0);
-		assertEquals(realizacaoPesquisa.getPorcentagemAcerto(), 100);
-		assertEquals(realizacaoPesquisa.getPorcentagemErro(), 0);
+		assertEquals(realizacaoPesquisa.getAcertos(), 0);
+		assertEquals(realizacaoPesquisa.getErros(), 5);
+		assertEquals(realizacaoPesquisa.getPorcentagemAcerto(), 0);
+		assertEquals(realizacaoPesquisa.getPorcentagemErro(), 100);
 	}
 	
 	@Test
