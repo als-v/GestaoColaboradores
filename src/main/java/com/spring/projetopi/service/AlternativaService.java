@@ -194,6 +194,8 @@ public class AlternativaService {
 		
 		p1.setNome(nome.getPergunta());
 		
+		p1.setAcertoGeral(0);
+		
 		pesquisaController.save(p1);
 		
 		return "redirect:/menuEmpresa/" + id;

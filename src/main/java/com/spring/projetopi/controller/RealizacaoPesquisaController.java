@@ -17,4 +17,6 @@ public interface RealizacaoPesquisaController {
 	List<Integer> calcAcertos(Pesquisa pesquisa, List<Boolean> values);
 	float calcPorcentagemAcertos(int acertos, int questoes);
 	float calcPorcentagemErro(float porcentagemAcerto);
+	List<RealizacaoPesquisa> getPesquisas(Pesquisa p);
+	List<Pesquisa> calcResultados();
 }

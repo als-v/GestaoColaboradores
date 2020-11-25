@@ -131,21 +131,15 @@ public class PesquisaService {
 	}
 	
 	@RequestMapping(value = "/visualizarResultadosEmpresa/{id}", method = RequestMethod.GET)
-	public ModelAndView resultPesquisa(@PathVariable("id") Long id) {
-		System.out.println(id);
-		ModelAndView mv = new ModelAndView("visualizarResultadoEmpresa");
-		
-		Empresa empresa = empresaController.findById(id);
-		List<RealizacaoPesquisa> pesquisas = realizacaoPesquisaController.findAll();
-		List<RealizacaoPesquisa> empresa_pesquisa = new ArrayList<RealizacaoPesquisa>();
-		
-		for(int i = 0; i < pesquisas.size(); i++) {
-			if(pesquisas.get(i).getColaborador().getEmpresa() == empresa) {
-				empresa_pesquisa.add(pesquisas.get(i));
-			}
-		}
-		
-		mv.addObject("pesquisas", empresa_pesquisa);
+	public String resultPesquisaMenu() {
+		return "visualizarResultadoEmpresa";
+	}
+	
+	@RequestMapping(value = "/resultadoPesquisa/{id}", method = RequestMethod.GET)
+	public ModelAndView resultPesquisa() {
+		List<Pesquisa> pesquisas = realizacaoPesquisaController.calcResultados();
+		ModelAndView mv = new ModelAndView("resultadosPesquisa");
+		mv.addObject("pesquisas", pesquisas);
 		
 		return mv;
 	}
