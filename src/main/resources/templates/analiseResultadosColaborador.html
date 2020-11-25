@@ -31,7 +31,7 @@
     					<a href="#">Menu</a>
     				</li>
     				<li class="breadcrumb-item active" aria-current="page">
-    				Resultados
+    				Análise dos resultados
     				</li>
   				</ol>
 			</nav>
@@ -41,35 +41,52 @@
 			 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
 						<div class="card-body">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span>Nenhuma resposta cadastrada</span>
+								<span>Você ainda não respondeu a nenhuma pesquisa</span>
 							</h4>
 						</div>
 					</div>
 			 	</div>
 			 	<div th:case="*">
-				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;" th:each="pesquisas : ${pesquisas}">
-					 	<div class="card-body">
+				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;border-radius: 50px" th:each="pesquisas : ${pesquisas}">
+				 	<div th:if="${pesquisas.porcentagemAcerto >= 60}">
+					 	<div class="card-body" style="background-color: #91FE95;">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 								<span th:text="${pesquisas.pesquisa.nome}"></span>
 							</h4>
 							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span>Colaborador: </span>
-								<span th:text="${pesquisas.colaborador.nome}"></span>
+								<span>Taxa de acerto: </span>
+								<span th:text="${pesquisas.porcentagemAcerto}"></span>
+								<span>%</span>
 							</h4>							
 							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span>Acertos: </span>
-								<span th:text="${pesquisas.acertos}"></span>
-							</h4>
-							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
-								<span>Erros: </span>
-								<span th:text="${pesquisas.erros}"></span>
+								<span>Taxa de erro: </span>
+								<span th:text="${pesquisas.porcentagemErro}"></span>
+								<span>%</span>
 							</h4>
 						</div>
+				 	</div>
+				 	<div th:if="${pesquisas.porcentagemAcerto < 60}">
+					 	<div class="card-body" style="background-color: #FE8B8D;">
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span th:text="${pesquisas.pesquisa.nome}"></span>
+							</h4>
+							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Taxa de acerto: </span>
+								<span th:text="${pesquisas.porcentagemAcerto}"></span>
+								<span>%</span>
+							</h4>							
+							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Taxa de erro: </span>
+								<span th:text="${pesquisas.porcentagemErro}"></span>
+								<span>%</span>
+							</h4>
+						</div>
+				 	</div>
 				 	</div>
 			 	</div>
 			</div>
 				<div class="row mx-md-n5">
-					<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar pesquisa</button>
+					<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Pesquisas</button>
 					<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
 				</div>
 		</div>
@@ -79,11 +96,11 @@
 		var x = document.URL;
 		
 		function menu(){
-			window.location.href = "/menuEmpresa/" + x.substr(50,50);
+			window.location.href = "/menuColaborador/" + x.substr(33,33);
 		}
 		
 		function cadastro(){
-			window.location.href = "/cadastroPergunta/" + x.substr(50,50);
+			window.location.href = "/realizarPesquisa/" + x.substr(33,33);
 		}
 	</script>
 </body>

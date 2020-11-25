@@ -29,4 +29,10 @@ public class RealizacaoPesquisa {
 	
 	@Column(name="erros", nullable = false)
 	@Getter @Setter private int erros;
+	
+	@Column(name="porcentagemAcerto", nullable = false)
+	@Getter @Setter private float porcentagemAcerto;
+	
+	@Column(name="porcentagemErro", nullable = false)
+	@Getter @Setter private float porcentagemErro;
 }

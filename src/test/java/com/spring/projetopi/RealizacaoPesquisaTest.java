@@ -87,17 +87,11 @@ public class RealizacaoPesquisaTest {
 		
 		perguntaController.save(pergunta_1);
 		
-		Pergunta pergunta_2 = new Pergunta();
-		
-		pergunta_2.setPergunta("Pergunta Teste 2");
-		
-		perguntaController.save(pergunta_2);
-		
 		/* Criação das alternativas */
 		Alternativa alternativa_1 = new Alternativa();
 		
 		alternativa_1.setAlternativa(1);
-		alternativa_1.setCorreto(false);
+		alternativa_1.setCorreto(true);
 		alternativa_1.setDescricao("Teste alternativa 1");
 		
 		alternativaController.save(alternativa_1);
@@ -105,7 +99,7 @@ public class RealizacaoPesquisaTest {
 		Alternativa alternativa_2 = new Alternativa();
 		
 		alternativa_2.setAlternativa(2);
-		alternativa_2.setCorreto(true);
+		alternativa_2.setCorreto(false);
 		alternativa_2.setDescricao("Teste alternativa 2");
 		
 		alternativaController.save(alternativa_2);
@@ -150,17 +144,9 @@ public class RealizacaoPesquisaTest {
 		
 		questaoController.save(questao_1);
 		
-		//Questao questao_2 = new Questao();
-		
-		//questao_2.setPergunta(pergunta_2);
-		//questao_2.setAlternativas(alternativas_2);
-		
-		//questaoController.save(questao_2);
-		
 		List <Questao> questoes = new ArrayList<Questao>();
 		
 		questoes.add(questao_1);
-		//questoes.add(questao_2);
 		
 		/*====== FIM ====== */
 		
@@ -183,9 +169,9 @@ public class RealizacaoPesquisaTest {
 		List<Boolean> a = new ArrayList<Boolean>();
 		
 		a.add(false);
-		a.add(false);
 		a.add(true);
-		a.add(false);
+		a.add(true);
+		a.add(true);
 		a.add(true);
 		
 		List<Integer> acertos = realizacaoPesquisaController.calcAcertos(pesquisa_1, a);
@@ -193,12 +179,17 @@ public class RealizacaoPesquisaTest {
 		realizacaoPesquisa.setAcertos(acertos.get(0));
 		realizacaoPesquisa.setErros(acertos.get(1));
 		
+		realizacaoPesquisa.setPorcentagemAcerto(realizacaoPesquisaController.calcPorcentagemAcertos(acertos.get(0), realizacaoPesquisa.getPesquisa().getQuestoes().size() * 5));
+		realizacaoPesquisa.setPorcentagemErro(realizacaoPesquisaController.calcPorcentagemErro(realizacaoPesquisa.getPorcentagemAcerto()));
+		
 		realizacaoPesquisaController.save(realizacaoPesquisa);
 
 		assertEquals(realizacaoPesquisa.getColaborador().getNome(), colaborador.getNome());
 		assertEquals(realizacaoPesquisa.getPesquisa().getNome(), pesquisa_1.getNome());
-		assertEquals(realizacaoPesquisa.getAcertos(), 2);
-		assertEquals(realizacaoPesquisa.getErros(), 3);
+		assertEquals(realizacaoPesquisa.getAcertos(), 0);
+		assertEquals(realizacaoPesquisa.getErros(), 5);
+		assertEquals(realizacaoPesquisa.getPorcentagemAcerto(), 0);
+		assertEquals(realizacaoPesquisa.getPorcentagemErro(), 100);
 	}
 	
 	@Test
@@ -344,6 +335,9 @@ public class RealizacaoPesquisaTest {
 		
 		realizacaoPesquisa.setAcertos(acertos.get(0));
 		realizacaoPesquisa.setErros(acertos.get(1));
+		
+		realizacaoPesquisa.setPorcentagemAcerto(realizacaoPesquisaController.calcPorcentagemAcertos(acertos.get(0), realizacaoPesquisa.getPesquisa().getQuestoes().size() * 5));
+		realizacaoPesquisa.setPorcentagemErro(realizacaoPesquisaController.calcPorcentagemErro(realizacaoPesquisa.getPorcentagemAcerto()));
 		
 		realizacaoPesquisaController.save(realizacaoPesquisa);
 
@@ -496,6 +490,8 @@ public class RealizacaoPesquisaTest {
 		realizacaoPesquisa.setAcertos(acertos.get(0));
 		realizacaoPesquisa.setErros(acertos.get(1));
 		
+		realizacaoPesquisa.setPorcentagemAcerto(realizacaoPesquisaController.calcPorcentagemAcertos(acertos.get(0), realizacaoPesquisa.getPesquisa().getQuestoes().size() * 5));
+		realizacaoPesquisa.setPorcentagemErro(realizacaoPesquisaController.calcPorcentagemErro(realizacaoPesquisa.getPorcentagemAcerto()));
 		realizacaoPesquisaController.save(realizacaoPesquisa);
 		
 		RealizacaoPesquisa p = realizacaoPesquisaController.findById(realizacaoPesquisa.getRealizacaopesquisa_id());

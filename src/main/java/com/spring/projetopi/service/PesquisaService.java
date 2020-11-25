@@ -110,6 +110,9 @@ public class PesquisaService {
 		realizacaoPesquisa.setAcertos(result.get(0));
 		realizacaoPesquisa.setErros(result.get(1));
 		
+		realizacaoPesquisa.setPorcentagemAcerto(realizacaoPesquisaController.calcPorcentagemAcertos(result.get(0), pesquisa.getQuestoes().size() * 5));
+		realizacaoPesquisa.setPorcentagemErro(realizacaoPesquisaController.calcPorcentagemErro(realizacaoPesquisa.getPorcentagemAcerto()));
+		
 		realizacaoPesquisaController.save(realizacaoPesquisa);
 		
 		return "redirect:/menuColaborador/" + id1;

@@ -9,9 +9,12 @@ import java.util.List;
 public interface RealizacaoPesquisaController {
 
 	List<RealizacaoPesquisa> findAll();
+	List<RealizacaoPesquisa> findByColaborador(Colaborador colaborador);
 	RealizacaoPesquisa findById(long id);
 	RealizacaoPesquisa save(RealizacaoPesquisa realizacaoPesquisa);
 	Pesquisa getPesquisa(Colaborador colaborador);
 	List<Boolean> checkValues(List<Boolean> list);
 	List<Integer> calcAcertos(Pesquisa pesquisa, List<Boolean> values);
+	float calcPorcentagemAcertos(int acertos, int questoes);
+	float calcPorcentagemErro(float porcentagemAcerto);
 }

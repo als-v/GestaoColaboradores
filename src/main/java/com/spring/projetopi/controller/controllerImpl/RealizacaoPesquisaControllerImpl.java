@@ -85,7 +85,7 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 			}
 		}
 		
-		return list;
+		return check;
 	}
 	
 	@Override
@@ -111,6 +111,31 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 		calculo.add(erros);
 		
 		return calculo;
+	}
+
+	@Override
+	public float calcPorcentagemAcertos(int acertos, int questoes) {
+		return ((acertos*100)/questoes);
+	}
+
+	@Override
+	public float calcPorcentagemErro(float porcentagemAcerto) {
+		float result = 100;
+		return result - porcentagemAcerto;
+	}
+
+	@Override
+	public List<RealizacaoPesquisa> findByColaborador(Colaborador colaborador) {
+		List<RealizacaoPesquisa> todasPesquisas = realizacaoPesquisaRepository.findAll();
+		List<RealizacaoPesquisa> colaboradorPesquisas = new ArrayList<RealizacaoPesquisa>();
+		
+		for(int i = 0; i < todasPesquisas.size(); i++) {
+			if(todasPesquisas.get(i).getColaborador().getColaborador_id() == colaborador.getColaborador_id()) {
+				colaboradorPesquisas.add(todasPesquisas.get(i));
+			}
+		}
+		
+		return colaboradorPesquisas;
 	}
 	
 }
