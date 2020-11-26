@@ -22,7 +22,7 @@
 	
 		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
 			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
-  				<ol class="breadcrumb" style=" background-color: #F6F6F6">
+  				<ol class="breadcrumb" style=" background-color: #E8E8E8; border-radius: 20px">
   				    <li class="breadcrumb-item" aria-current="page">
     					<a href="/">Sair</a>
     				</li>
@@ -39,7 +39,7 @@
 				 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(pesquisas)}">
 				 	<div th:case="'0'">
 				 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
-							<div class="card-body">
+							<div class="card-body" style="background-color: #F6F4F4;">
 								<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 									<span>Nenhuma pesquisa cadastrada</span>
 								</h4>
@@ -48,7 +48,7 @@
 				 	</div>
 				 	<div th:case="*">
 					 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;" th:each="pesquisas : ${pesquisas}">
-						 	<div class="card-body" th:onclick="fazerPesquisa(${pesquisas.pesquisa_id})">
+						 	<div class="card-body" style="background-color: #F6F4F4;">
 								<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 									<span th:text="${pesquisas.nome}"></span>
 									<input id="taqui" type="hidden" th:value="${pesquisas.pesquisa_id}">
