@@ -1,6 +1,7 @@
 package com.spring.projetopi.controller.controllerImpl;
 
 import com.spring.projetopi.model.Colaborador;
+import com.spring.projetopi.model.Empresa;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.RealizacaoPesquisa;
 import com.spring.projetopi.controller.RealizacaoPesquisaController;
@@ -174,6 +175,20 @@ public class RealizacaoPesquisaControllerImpl implements RealizacaoPesquisaContr
 		}
 		
 		return todasPesquisas;
+	}
+
+	@Override
+	public List<RealizacaoPesquisa> findByEmpresa(Empresa emp) {
+		List<RealizacaoPesquisa> pesquisas = realizacaoPesquisaRepository.findAll();
+		List<RealizacaoPesquisa> pesquisasEmp = new ArrayList<RealizacaoPesquisa>();
+		
+		for(int i = 0; i < pesquisas.size(); i++) {
+			if(pesquisas.get(i).getPesquisa().getEmpresa().getEmpresa_id() == emp.getEmpresa_id()) {
+				pesquisasEmp.add(pesquisas.get(i));
+			}
+		}
+		
+		return pesquisasEmp;
 	}
 	
 }

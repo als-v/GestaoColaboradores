@@ -143,4 +143,12 @@ public class PesquisaService {
 		
 		return mv;
 	}
+	
+	@RequestMapping(value = "/resultadoColaborador/{id}", method = RequestMethod.GET)
+	public ModelAndView resultColaborador(@PathVariable("id") Long id) {
+		List<RealizacaoPesquisa> pesquisas = realizacaoPesquisaController.findByEmpresa(empresaController.findById(id));
+		ModelAndView mv = new ModelAndView("resultadosColaboradores");
+		mv.addObject("pesquisas", pesquisas);
+		return mv;
+	}
 }

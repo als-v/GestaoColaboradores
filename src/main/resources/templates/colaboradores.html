@@ -20,7 +20,7 @@
 
 	<section>
 	
-		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+		<div class="container w-50 p-3" style="padding-bottom: 30px; background-color: #E8E8E8" >
 			
 			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
   				<ol class="breadcrumb" style=" background-color: #F6F6F6">
@@ -39,7 +39,7 @@
 			 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(colaboradores)}">
 			 	<div th:case="'0'">
 			 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
-						<div class="card-body">
+						<div class="card-body" style="background-color: #E0E4E0">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
 								<span>Nenhum colaborador cadastrado</span>
 							</h4>
@@ -48,28 +48,26 @@
 			 	</div>
 			 	<div th:case="*">
 				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;" th:each="colaborador : ${colaboradores}">
-					 	<div class="card-body">
+					 	<div class="card-body" style="background-color: #E0E4E0">
 							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Colaborador:</span>
 								<span th:text="${colaborador.nome}"></span>
 							</h4>
-							
-							<div class="card-text" >
-								<p style="margin-left: 30%; display: inline-block;">E-MAIL:&nbsp;&nbsp;</p> 
-								<p style="display: inline-block;" th:text=${colaborador.email}></p>
-								</br>
-								<p style="margin-left: 30%; display: inline-block;: left">EMPRESA:&nbsp;&nbsp;</p>
-								<p style="display: inline-block;: left"th:text=${colaborador.empresa.nome}></p>
-							</div>
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>E-mail:</span>
+								<span th:text="${colaborador.email}"></span>
+							</h4>
 						</div>
 				 	</div>
 			 	</div>
 			</div>
-			<div class="row mx-md-n5">
+		</div>
+		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+					<div class="row mx-md-n5">
 				<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar</button>
 				<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
 			</div>
-		</div>
-	
+	</div>
 	</section>
 	<script>
 		var x = document.URL;

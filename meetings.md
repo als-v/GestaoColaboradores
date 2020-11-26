@@ -58,3 +58,13 @@
    - Ainda estamos com problema na realização dos testes, não estamos conseguindo pegar as respostas dos colaboradores.
    - continuamos com a criação de novas historias de usuario, tendo em vista uma outra perspecitiva (a partir de contatos que realmente irão usar o sistema).
    - Decidimos focar na realização do teste para finalizarmos a sprint.
+ 
+ * 19/11/2020
+   - Apresentamos a 3° sprint.
+   - Começamos com os preparativos da 4° sprint.
+   - Criamos as issues de cada um, e começamos a trabalhar
+ 
+ * 24/11/2020
+   - Fizemos uma reunião para discutir sobre colocar mais issues na sprint
+   - Descutimos sobre o layout do sistema.
+   - Descutimos sobre o andamento da sprint.

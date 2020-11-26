@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+
+	<title>Gestao de Colaboradores</title>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header>
+	
+		<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
+  			<a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
+		</nav>
+		
+	</header>
+
+	<section>
+	
+		<div class="container w-50 p-3" style="padding-bottom: 30px; background-color: #E8E8E8" >
+			
+			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
+  				<ol class="breadcrumb" style=" background-color: #F6F6F6">
+  				    <li class="breadcrumb-item" aria-current="page">
+    					<a href="/">Sair</a>
+    				</li>
+    				<li class="breadcrumb-item" aria-current="page" onClick="menu()">
+    					<a href="#">Menu</a>
+    				</li>
+    				<li class="breadcrumb-item" aria-current="page" onClick="voltar()">
+    				<a href="#">Resultados</a>
+    				</li>
+    				<li class="breadcrumb-item active" aria-current="page">
+    				Resultados por colaboradores
+    				</li>
+  				</ol>
+			</nav>
+			
+			 <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:switch="${#lists.size(pesquisas)}">
+			 	<div th:case="'0'">
+			 		<div class="card shadow-sm bg-white rounded" style="margin: 20px;">
+						<div class="card-body">
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Nenhuma resposta cadastrada.</span>
+							</h4>
+						</div>
+					</div>
+			 	</div>
+			 	<div th:case="*">
+				 	<div class="card shadow-sm bg-white rounded" style="margin: 20px;border-radius: 50px" th:each="pesquisas : ${pesquisas}">
+				 	<div th:if="${pesquisas.porcentagemAcerto >= 60}">
+					 	<div class="card-body" style="background-color: #91FE95;">
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Pesquisa:</span>
+								<span th:text="${pesquisas.pesquisa.nome}"></span>
+							</h4>
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Colaborador:</span>
+								<span th:text="${pesquisas.colaborador.nome}"></span>
+							</h4>
+							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Taxa de acerto: </span>
+								<span th:text="${pesquisas.porcentagemAcerto}"></span>
+								<span>% &</span>
+								<span>Taxa de erro: </span>
+								<span th:text="${pesquisas.porcentagemErro}"></span>
+								<span>%</span>
+							</h4>
+						</div>
+				 	</div>
+				 	<div th:if="${pesquisas.porcentagemAcerto < 60}">
+					 	<div class="card-body" style="background-color: #FE8B8D;">
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Pesquisa:</span>
+								<span th:text="${pesquisas.pesquisa.nome}"></span>
+							</h4>
+							<h4 class="card-title" style="font-weight: bold; color:black; padding-top: 5px; text-align: center;">
+								<span>Colaborador:</span>
+								<span th:text="${pesquisas.colaborador.nome}"></span>
+							</h4>
+							<h4 class="card-text" style="font-weight: bold; color:black; padding-top: 5px; text-align: left;">
+								<span>Taxa de acerto: </span>
+								<span th:text="${pesquisas.porcentagemAcerto}"></span>
+								<span>% &</span>
+								<span>Taxa de erro: </span>
+								<span th:text="${pesquisas.porcentagemErro}"></span>
+								<span>%</span>
+							</h4>							
+
+						</div>
+				 	</div>
+				 	</div>
+			 	</div>
+			</div>
+		</div>
+		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
+						<div class="row mx-md-n5">
+					<button onClick="voltar()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Voltar</button>
+					<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Menu</a>
+				</div>
+		</div>
+	</section>
+	<script>
+		var x = document.URL;
+		
+		function menu(){
+			window.location.href = "/menuEmpresa/" + x.substr(43,43);
+		}
+		
+		function voltar(){
+			window.location.href = "/visualizarResultadosEmpresa/" + x.substr(43,43);
+		}
+		
+	</script>
+</body>
+</html>

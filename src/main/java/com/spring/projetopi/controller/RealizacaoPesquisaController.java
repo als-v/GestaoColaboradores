@@ -1,6 +1,7 @@
 package com.spring.projetopi.controller;
 
 import com.spring.projetopi.model.Colaborador;
+import com.spring.projetopi.model.Empresa;
 import com.spring.projetopi.model.Pesquisa;
 import com.spring.projetopi.model.RealizacaoPesquisa;
 
@@ -19,4 +20,5 @@ public interface RealizacaoPesquisaController {
 	float calcPorcentagemErro(float porcentagemAcerto);
 	List<RealizacaoPesquisa> getPesquisas(Pesquisa p);
 	List<Pesquisa> calcResultados();
+	List<RealizacaoPesquisa> findByEmpresa(Empresa emp);
 }
