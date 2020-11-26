@@ -2,52 +2,54 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 
-	<title>Gestao de Colaboradores</title>
-	
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	
+<title>Gestao de Colaboradores</title>
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
 </head>
 
 <body style="background-color: #FBFBFB;">
 	<header>
-	
-<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
-  <a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a></a>
-      </li>
-    </ul>
-    <span class="navbar-text" >Bem-vindo &nbsp</span>
-    <span class="navbar-text" th:text="${empresa.nome}">
-    </span>
-    <span>&nbsp&nbsp&nbsp</span>
-    <a href="#" onClick="editar()">Editar perfil</a>
-  </div>
-</nav>
-		
+
+		<nav class="navbar navbar-expand-lg navbar navbar-light"
+			style="background-color: #E8E8E8;">
+			<a class="navbar-brand" style="color: #4D4D4D;">Gestão de
+				Colaboradores</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a></a></li>
+				</ul>
+				<span class="navbar-text">Bem-vindo &nbsp</span> <span
+					class="navbar-text" th:text="${empresa.nome}"> </span> <span>&nbsp&nbsp&nbsp</span>
+				<a href="#" onClick="editar()">Editar perfil</a>
+			</div>
+		</nav>
+
 	</header>
 
 	<section>
-	
-		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;" >
-			
-			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
-  				<ol class="breadcrumb" style=" background-color: #E8E8E8; border-radius: 20px">
-				    <li class="breadcrumb-item" aria-current="page">
-    				<a href="/">Sair</a>
-    				</li>
-    				<li class="breadcrumb-item active" aria-current="page">
-    				Menu
-    				</li>
-  				</ol>
+
+		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;">
+
+			<nav aria-label="breadcrumb" style="padding-left: 0px;">
+				<ol class="breadcrumb"
+					style="background-color: #E8E8E8; border-radius: 20px">
+					<li class="breadcrumb-item" aria-current="page"><a href="/">Sair</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">Menu</li>
+				</ol>
 			</nav>
 
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onClick="cadastro()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="cadastro()">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;"
+						onclick="cadastro()">
 						<!-- <a href="/cadastroColaborador"><span>Cadastrar colaborador</span></a>  -->
 						<!-- <button style="">Cadastrar colaborador</button> -->
 						<!-- <span>Cadastrar colaborador</span> -->
@@ -55,33 +57,42 @@
 					</h4>
 				</div>
 			</div>
-			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onClick="listagem()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="listagem()">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;"
+						onclick="listagem()">
 						<span>Colaboradores</span>
 					</h4>
 				</div>
 			</div>
-			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onClick="pesquisa()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="pesquisa()">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;"
+						onclick="pesquisa()">
 						<span>Pesquisas</span>
 					</h4>
 				</div>
-			</div>	
-			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+			</div>
+
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onClick="verPesquisa()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;" onclick="pesquisa()">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;"
+						onclick="pesquisa()">
 						<span>Resultados</span>
 					</h4>
 				</div>
-			</div>						
-			
+			</div>
+
 		</div>
-	
+
 	</section>
 	<script>
 		var x = document.URL;

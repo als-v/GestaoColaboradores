@@ -2,71 +2,81 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
 
-	<title>Gestao de Colaboradores</title>
-	
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<title>Gestao de Colaboradores</title>
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
 </head>
 
 <body style="background-color: #FBFBFB;">
 	<header>
-	
-<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
-  <a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
+
+		<nav class="navbar navbar-expand-lg navbar navbar-light"
+			style="background-color: #E8E8E8;">
+			<a class="navbar-brand" style="color: #4D4D4D;">Gestão de
+				Colaboradores</a>
 		</nav>
-		
+
 	</header>
 
 	<section>
-	
-		<div class="container w-50 p-3" style="padding-bottom: 30px;" >
-			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
-  				<ol class="breadcrumb" style=" background-color: #E8E8E8; border-radius: 20px" >
-  				    <li class="breadcrumb-item" aria-current="page">
-    				<a href="/">Sair</a>
-    				</li>
-  				    <li class="breadcrumb-item" aria-current="page">
-    				<a href="#" onClick="menu()">Menu</a>
-    				</li>    				
-    				<li class="breadcrumb-item active" aria-current="page">
-    				Editar perfil
-    				</li>
-  				</ol>
+
+		<div class="container w-50 p-3" style="padding-bottom: 30px;">
+			<nav aria-label="breadcrumb" style="padding-left: 0px;">
+				<ol class="breadcrumb"
+					style="background-color: #E8E8E8; border-radius: 20px">
+					<li class="breadcrumb-item" aria-current="page"><a href="/">Sair</a>
+					</li>
+					<li class="breadcrumb-item" aria-current="page"><a href="#"
+						onClick="menu()">Menu</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Editar
+						perfil</li>
+				</ol>
 			</nav>
-			
+
 			<div>
 				<th:block th:include="validate/empresaValidate"></th:block>
 				<form method="post">
-				
+
 					<div class="form-group">
-						<label for="nomeId">Nome</label>
-						<input type="text" class="form-control" name="nome" id="nomeId" th:attr="value = ${colaborador.nome}">
+						<label for="nomeId">Nome</label> <input type="text"
+							class="form-control" name="nome" id="nomeId"
+							th:attr="value = ${colaborador.nome}">
 					</div>
-					
+
 					<div class="form-group">
-						<label for="emailId">E-mail</label>
-						<input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp" th:attr="value = ${colaborador.email}" disabled>
+						<label for="emailId">E-mail</label> <input type="email"
+							class="form-control" id="emailId" name="email"
+							aria-describedby="emailHelp"
+							th:attr="value = ${colaborador.email}" disabled>
 					</div>
-					
+
 					<div class="form-group">
-						<label for="senha">Senha</label>
-						<input type="password" class="form-control" name="senha" id="senhaId" th:attr="value = ${colaborador.senha}">
+						<label for="senha">Senha</label> <input type="password"
+							class="form-control" name="senha" id="senhaId"
+							th:attr="value = ${colaborador.senha}">
 					</div>
-					
+
 					<div class="row mx-md-n5">
-						<button type="submit" class="w-25 col btn btn-outline-success" style="margin: 30px;">Alterar</button>
-						<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Cancelar</a>
+						<button type="submit" class="w-25 col btn btn-outline-success"
+							style="margin: 30px;">Alterar</button>
+						<a href="#" onClick="menu()"
+							class="w-25 col btn btn-outline-danger" role="button"
+							style="margin: 30px;">Cancelar</a>
 					</div>
-					
+
 				</form>
-			
+
 			</div>
-			
-			
+
+
 		</div>
-	
+
 	</section>
-		<script>
+	<script>
 		function menu(){
 			var x = document.URL;
 			
