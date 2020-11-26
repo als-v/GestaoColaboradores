@@ -2,61 +2,72 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 
-	<title>Gestao de Colaboradores</title>
-	
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	
+<title>Gestao de Colaboradores</title>
+
+<!-- CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
 </head>
 
 <body style="background-color: #FBFBFB;">
 	<header>
-	
-<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #E8E8E8;">
-  <a class="navbar-brand" style="color:#4D4D4D;">Gestão de Colaboradores</a>
-</nav>
-		
+
+		<nav class="navbar navbar-expand-lg navbar navbar-light"
+			style="background-color: #E8E8E8;">
+			<a class="navbar-brand" style="color: #4D4D4D;">Gestão de
+				Colaboradores</a>
+		</nav>
+
 	</header>
 
 	<section>
-	
-		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;" >
-			
-			<nav aria-label="breadcrumb" style="padding-left: 0px;" >
-  				<ol class="breadcrumb" style=" background-color: #E8E8E8; border-radius: 20px">
-				    <li class="breadcrumb-item" aria-current="page">
-    				<a href="/">Sair</a>
-    				</li>
-    				<li class="breadcrumb-item" aria-current="page" onClick="menu()">
-    				<a href="#">Menu</a>
-    				</li>
-    				<li class="breadcrumb-item active" aria-current="page">
-    				Resultados
-    				</li>
-  				</ol>
+
+		<div class="container w-50 p-3 rounded" style="padding-bottom: 30px;">
+
+			<nav aria-label="breadcrumb" style="padding-left: 0px;">
+				<ol class="breadcrumb"
+					style="background-color: #E8E8E8; border-radius: 20px">
+					<li class="breadcrumb-item" aria-current="page"><a href="/">Sair</a>
+					</li>
+					<li class="breadcrumb-item" aria-current="page" onClick="menu()">
+						<a href="#">Menu</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">
+						Resultados</li>
+				</ol>
 			</nav>
-			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onclick="pesquisa()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;">
 						<span>Taxa de acerto das pesquisas</span>
 					</h4>
 				</div>
 			</div>
-			
-			<div class="card shadow-sm bg-white rounded hvr" style="margin-top: 20px;">
+
+			<div class="card shadow-sm bg-white rounded hvr"
+				style="margin-top: 20px;">
 				<div class="card-body" onClick="colaborador()">
-					<h4 class="card-title" style="font-weight: bold; color:#8C8C8C; padding-top: 5px; text-align: center;">
+					<h4 class="card-title"
+						style="font-weight: bold; color: #8C8C8C; padding-top: 5px; text-align: center;">
 						<span>Taxa de acerto dos colaboradores</span>
 					</h4>
 				</div>
 			</div>
-					<div class="row mx-md-n5">
-					<button onClick="cadastro()" class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar pesquisa</button>
-					<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger" role="button" style="margin: 30px;">Voltar</a>
-				</div>
+			<div class="row mx-md-n5">
+				<button onClick="cadastro()"
+					class="w-25 col btn btn-outline-success" style="margin: 30px;">Cadastrar
+					pesquisa</button>
+				<a href="#" onClick="menu()" class="w-25 col btn btn-outline-danger"
+					role="button" style="margin: 30px;">Voltar</a>
+			</div>
 		</div>
-	
+
 	</section>
 	<script>
 		var x = document.URL;
