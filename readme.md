@@ -3,6 +3,9 @@
 <a href="https://travis-ci.com/github/als-v/GestaoColaboradores/builds">
 <img  src="https://travis-ci.com/als-v/GestaoColaboradores.svg?branch=master">
 </a>
+<a href="https://sonarcloud.io/project/configuration?id=gestaocolaboradores">
+<img  src="https://sonarcloud.io/api/project_badges/measure?project=gestaocolaboradores&metric=alert_status">
+</a>
 </div>
 </h1>
 <br>
